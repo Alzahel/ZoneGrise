@@ -8,13 +8,9 @@ Il y a encore quelques années, face à beaucoup de problèmes créatifs, la dif
 
 Je peux demander dix formulations d’une phrase. Vingt directions pour une image. Plusieurs structures pour une scène. Des variantes d’un concept, d’une interface, d’un morceau de code ou d’un personnage.
 
-Et parfois, le plus difficile n’est plus d’obtenir une réponse.
+Et parfois, le plus difficile n’est plus d’obtenir une réponse, c’est de savoir laquelle mérite de rester.
 
-C’est de savoir laquelle mérite de rester.
-
-Je pense qu’on sous-estime beaucoup ce déplacement.
-
-On parle énormément de ce que l’IA sait produire. Beaucoup moins de ce qu’elle nous oblige à choisir.
+On parle énormément de ce que l’IA sait produire comme d'une formule magique, mais est-ce aussi simple ?
 
 ## Produire beaucoup ne veut pas dire savoir quoi garder
 
