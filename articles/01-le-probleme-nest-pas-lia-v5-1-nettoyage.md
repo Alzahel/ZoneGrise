@@ -22,7 +22,7 @@ C’est ce deuxième usage qui m’intéresse.
 
 ## L’IA n’a pas inventé le contenu vide
 
-Produire beaucoup de choses médiocres parce que la quantité finit par rapporter n’est pas une invention de l’IA.
+Produire beaucoup de choses médiocres parce que la quantité finit par rapporter n’est pas une invention nouvelle.
 
 Bien avant ChatGPT, nous avions déjà les fermes de contenu, les sites fabriqués pour le SEO, le spam, les copies opportunistes de tendances et toutes sortes de productions dont l’objectif principal était d’occuper le plus d’espace possible au moindre coût.
 
