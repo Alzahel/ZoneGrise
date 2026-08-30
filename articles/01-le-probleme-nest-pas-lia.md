@@ -1,483 +1,353 @@
 # Le problème n'est pas l'IA, c'est l'absence d'intention
 
-> **Statut :** squelette détaillé — premier article de Zone Grise.
+> **Statut :** V1 — article de travail.
 >
-> **Objectif :** partir de ce que les lecteurs critiques de l'IA voient réellement — le déferlement de contenu médiocre — puis montrer que ce phénomène ne suffit pas à condamner tous les usages créatifs de l'outil.
+> Ce texte défend une distinction : utiliser l'IA pour retirer autant que possible l'humain d'un processus n'est pas la même chose que l'utiliser pour donner davantage de portée à une intention humaine. Cette distinction n'efface ni les problèmes éthiques, ni les questions de droit, ni les risques d'homogénéisation. Elle permet simplement de regarder les usages réels avec un peu plus de précision.
 
-## Thèse en une phrase
+## Oui, il y a énormément de merde
 
-> **Ce qui rend une grande partie du contenu généré par IA si peu intéressant n'est peut-être pas simplement qu'une machine a participé à sa fabrication, mais qu'elle a précisément été utilisée pour réduire au minimum l'intention, le jugement et l'implication humaine.**
+Commençons par le point sur lequel il est difficile de donner tort aux personnes qui rejettent aujourd'hui les contenus générés par intelligence artificielle : **il y a énormément de merde**.
 
-## Ce que l'article ne doit pas dire
+Des images produites à la chaîne avec les mêmes lumières, les mêmes visages et les mêmes erreurs. Des vidéos dont le script, la voix, les illustrations et le montage semblent avoir été assemblés sans que personne ne se demande réellement pourquoi elles devraient exister. Des articles conçus moins pour être lus que pour occuper une requête Google. Des livres qui donnent l'impression d'avoir été publiés parce qu'un mot-clé présentait une opportunité commerciale. Des comptes capables de publier des dizaines de fois par jour parce que presque plus aucune étape ne nécessite d'attention humaine.
 
-- que tout contenu humain est profond et tout contenu IA potentiellement bon ;
-- que les défauts propres aux modèles n'existent pas ;
-- que le « slop » n'est pas un problème ;
-- que les critiques de l'IA réagissent uniquement par peur du changement ;
-- que toute personne passant du temps avec une IA devient automatiquement auteur ou artiste ;
-- que les problèmes économiques, juridiques et éthiques disparaissent dès lors qu'il existe une intention créative.
+Le sentiment d'invasion n'est pas imaginaire.
 
-L'article doit commencer par **accorder à la critique son observation la plus forte** : oui, nos écrans sont de plus en plus remplis de productions automatisées, répétitives et opportunistes, et oui, l'IA rend ce phénomène beaucoup plus facile.
+Une étude du Pew Research Center publiée en août 2026 a analysé 490 000 pages anglophones issues de Common Crawl. Dans l'échantillon de juillet 2026, 10 % des pages présentaient des signes significatifs d'écriture ou d'édition par IA. En ne regardant que les pages publiées après la sortie de ChatGPT, cette proportion dépassait un tiers. Pew insiste à raison sur une limite importante : un détecteur ne permet pas d'affirmer avec certitude qu'un texte individuel a été écrit par une IA. Mais à l'échelle de centaines de milliers de documents, le changement est difficile à ignorer.[^pew]
 
----
+Nous avons construit un outil capable de produire en quelques secondes quelque chose qui possède l'apparence extérieure d'un travail fini. Il était inévitable qu'une partie du marché découvre immédiatement la possibilité la plus simple : produire beaucoup plus de choses finies.
 
-# Structure proposée
+Pas nécessairement de meilleures choses.
 
-## Ouverture — Vous avez raison : il y a énormément de merde
+Simplement davantage.
 
-### Fonction
+Et c'est précisément là que commence, à mon sens, une confusion importante.
 
-Éviter toute posture défensive. Commencer sur un terrain d'accord.
+Nous sommes en train de juger le potentiel créatif d'un outil à travers l'usage qui cherche souvent **à minimiser la créativité humaine nécessaire à son utilisation**.
 
-### Idée
+## Produire médiocrement en masse n'a rien de nouveau
 
-Lorsque quelqu'un dit détester les « contenus IA », il est facile de comprendre ce qu'il veut dire.
+L'intelligence artificielle n'a pas inventé le contenu industriel.
 
-Il pense à des images produites à la chaîne, à des vidéos aux scripts interchangeables, à des articles conçus uniquement pour apparaître dans une recherche, à des comptes sociaux capables de publier des dizaines de contenus par jour, à des livres produits pour occuper une niche commerciale, à des réponses et commentaires qui semblent provenir de la même voix synthétique.
+En janvier 2011, plus de onze ans avant ChatGPT, Google expliquait déjà devoir lutter contre les *content farms* : des sites remplis de contenus superficiels ou de faible qualité, produits en quantité pour capter du trafic.[^google2011]
 
-Le problème n'est pas imaginaire.
+Le problème économique existait donc avant les modèles génératifs : lorsque chaque contenu rapporte peu mais coûte encore moins cher, produire cent choses moyennes peut devenir plus rentable que produire une excellente chose.
 
-### Formulation possible à développer
+Ce que l'IA change est l'échelle.
 
-Nous avons créé un outil capable de produire en quelques secondes quelque chose qui possède **l'apparence extérieure d'un travail fini**. Et la première chose que beaucoup de gens ont décidé d'en faire a été, assez logiquement, de produire beaucoup plus de choses finies.
+Elle réduit brutalement le coût marginal de tâches qui demandaient encore du temps humain : écrire, illustrer, traduire, enregistrer une voix, monter une vidéo, décliner un concept, créer une miniature, produire des variantes, rédiger des métadonnées.
 
-Pas nécessairement de meilleures choses. Simplement davantage.
+Une logique économique ancienne peut maintenant être appliquée à des domaines qui résistaient encore partiellement à l'industrialisation parce qu'ils demandaient beaucoup d'heures de travail ou plusieurs compétences différentes.
 
-### Transition
+L'IA n'a pas créé l'envie de produire du contenu vide pour gagner de l'argent.
 
-Mais cette utilisation massive crée un biais : **nous sommes en train de juger le potentiel créatif d'un outil à travers l'usage qui cherche précisément à minimiser la créativité humaine nécessaire à son utilisation.**
+**Elle a retiré une grande partie des freins qui limitaient la quantité que cette stratégie pouvait produire.**
 
----
+Cette différence est essentielle, parce qu'elle déplace la question. Le problème n'est plus simplement : « une IA a-t-elle participé ? » Il devient : **dans quel but a-t-elle été utilisée, et qu'est-ce qui reste du jugement humain dans le processus ?**
 
-## 1. Produire médiocrement en masse n'a rien de nouveau
+## Industrialiser l'absence d'implication
 
-### Idée centrale
+Imaginons un système volontairement caricatural.
 
-La stratégie économique « quantité > qualité » précède largement l'IA.
+Un programme détecte automatiquement des sujets susceptibles de générer du trafic. Un modèle écrit l'article. Un autre génère l'image. Le titre et la description sont produits automatiquement. Le contenu est publié. Puis le système recommence cent, mille ou dix mille fois.
 
-Avant les modèles génératifs existaient déjà :
+Le but de cette chaîne n'est pas d'obtenir exactement la bonne formulation, exactement la bonne émotion ou exactement la bonne composition.
 
-- fermes de contenu ;
-- sites SEO remplis de textes interchangeables ;
-- copies opportunistes de tendances ;
-- produits culturels dérivés à la chaîne ;
-- spam ;
-- publications sociales optimisées pour la fréquence ;
-- modèles économiques reposant sur un très faible coût unitaire et un grand volume.
+Son objectif économique est au contraire de demander **le moins d'attention humaine possible pour chaque unité produite**.
 
-### Ce que l'IA change réellement
+Dans ce contexte, le manque de saveur n'est pas surprenant. Il est presque une conséquence du cahier des charges.
 
-Elle réduit brutalement le coût marginal de la production dans des domaines où celui-ci était encore élevé.
+Il serait étrange qu'un système optimisé pour réduire au minimum le goût, l'arbitrage et l'attention d'une personne produise énormément de singularité personnelle.
 
-Le texte, l'image, la voix, la vidéo et progressivement d'autres formes de production deviennent accessibles à une logique qui existait déjà :
+Les modèles ont évidemment leurs propres biais : structures récurrentes, formulations préférées, tendances vers la moyenne, esthétiques reconnaissables. Mais ces tendances deviennent particulièrement visibles lorsqu'il n'existe presque plus personne dans la boucle pour les combattre.
 
-> Produire cent choses moyennes peut être économiquement plus intéressant que produire une excellente chose.
+Lorsque personne ne défend une vision, **le modèle devient de fait le directeur artistique**.
 
-### Hypothèse
+Et un modèle statistique n'a aucune raison intrinsèque de défendre une singularité personnelle qu'on ne lui impose pas.
 
-L'IA n'a pas inventé cette incitation. **Elle l'a libérée d'une grande partie de ses contraintes de production.**
+Ce qui est intéressant, c'est que les plateformes elles-mêmes commencent à formuler une distinction proche.
 
-### Recherche nécessaire
+Google explique que l'IA générative peut être utile pour rechercher un sujet ou structurer un contenu original, mais considère comme abusif le fait de générer de nombreuses pages sans valeur ajoutée pour les utilisateurs.[^googleai] Sa politique contre le *scaled content abuse* précise même que le problème peut venir d'une automatisation, d'humains ou d'une combinaison des deux : ce qui compte est la production massive de contenus non originaux et sans intérêt réel.[^googlespam]
 
-Trouver des sources et exemples sur :
+YouTube applique une logique comparable à la monétisation. La plateforme exclut les contenus produits en série, génériques ou répétitifs, mais cite explicitement parmi les usages acceptables l'emploi de l'IA pour représenter un personnage et un récit originaux inventés par le créateur, ou pour assister un script et produire des éléments visuels au service d'un récit personnel.[^youtube]
 
-- content farms avant l'IA générative ;
-- évolution du coût de création de contenu ;
-- politiques de plateformes face au contenu généré massivement ;
-- marchés où la génération automatisée a fortement augmenté le volume.
+Amazon KDP distingue de son côté les contenus « générés par IA » des contenus « assistés par IA » : utiliser un outil pour rechercher des idées, corriger ou améliorer une création humaine entre dans cette seconde catégorie.[^kdp]
 
-Ne pas utiliser ces données pour prétendre mesurer tout le contenu IA. Elles servent uniquement à établir la continuité de la logique économique.
+Google, YouTube et Amazon ne sont évidemment pas des arbitres de ce qui constitue de l'art. Leurs règles répondent à leurs propres intérêts économiques et réglementaires.
 
----
+Mais leur évolution révèle quelque chose d'intéressant : même des plateformes confrontées directement à la production automatisée découvrent qu'une règle du type **« IA = mauvais, humain = bon »** fonctionne mal.
 
-## 2. L'IA permet d'industrialiser l'absence d'implication
+La distinction qui réapparaît est celle de la valeur ajoutée, de l'originalité, de la perspective et de l'implication du créateur.
 
-### Idée centrale
+## Deux usages presque opposés du même outil
 
-Le changement d'échelle est important parce qu'il devient possible de réduire presque chaque étape de contrôle humain.
+C'est ici que je veux tracer la principale ligne de ce blog.
 
-Workflow caricatural mais révélateur :
+L'intelligence artificielle est un outil. Probablement l'un des outils les plus puissants que nous ayons jamais mis entre les mains d'un individu, précisément parce qu'elle peut intervenir dans des tâches intellectuelles et créatives qui nécessitaient auparavant énormément de temps ou plusieurs personnes.
 
-1. identifier automatiquement un sujet susceptible de générer du trafic ;
-2. demander à un modèle de produire le contenu ;
-3. générer une illustration ;
-4. générer le titre et la description ;
-5. publier automatiquement ;
-6. recommencer des centaines de fois.
+Dire que c'est un outil n'est donc pas une manière de minimiser son impact.
 
-À chaque étape, le but économique est de demander **le moins possible d'attention humaine par unité produite**.
+Au contraire : **plus un outil est puissant, plus la manière dont on l'utilise compte.**
 
-### Point important
+Je vois aujourd'hui au moins deux logiques presque opposées.
 
-Il serait étonnant qu'un système conçu pour maximiser le nombre d'outputs par minute produise énormément de singularité.
+La première consiste à utiliser l'IA pour **minimiser l'humain** : obtenir un produit exploitable avec le moins de temps, de jugement, d'apprentissage et d'implication possible. Le volume est l'objectif. L'humain devient interchangeable. Une sortie suffisamment correcte est meilleure qu'une sortie parfaite si elle peut être produite mille fois.
 
-La répétition, le manque de cohérence profonde et le sentiment d'interchangeabilité ne sont alors pas uniquement des défauts techniques. Ils sont aussi le résultat du **mode de production**.
+La seconde consiste à utiliser l'IA pour **amplifier l'humain** : rendre possible, accélérer ou améliorer quelque chose qu'une personne voulait déjà construire.
 
-### Formulation forte
+Dans ce deuxième cas, l'IA peut devenir un support très différent de la machine à produire du contenu que nous voyons défiler sur les réseaux.
 
-> Le contenu sans saveur n'est pas seulement du contenu créé par une IA. C'est souvent du contenu dont le modèle économique récompense l'absence de goût personnel.
+Elle peut jouer le rôle d'un éditeur imparfait, d'un professeur, d'un sparring partner, d'un assistant technique.
 
-### Nuance
+« Voici mon idée. Où sont les failles ? »
 
-Les modèles ont eux-mêmes des tendances vers la moyenne, certains clichés et certaines structures récurrentes. L'article ne doit donc pas tout attribuer à l'utilisateur.
+« Je bloque sur cette partie. Quelles approches existent ? »
 
-La question est plutôt : **que se passe-t-il lorsque les tendances moyennes du modèle rencontrent un processus qui ne comporte presque aucun humain chargé de les combattre ?**
+« Je ne connais pas ce domaine. Qu'est-ce que je dois apprendre pour prendre une décision correcte ? »
 
----
+« Donne-moi plusieurs possibilités : je veux comprendre pourquoi aucune ne correspond encore à ce que j'ai en tête. »
 
-## 3. Ce que nous voyons le plus n'est pas nécessairement ce qui définit l'outil
+« Cette scène ne provoque pas l'émotion que je cherche. Aide-moi à comprendre pourquoi. »
 
-### Idée centrale
+Dans ce fonctionnement, la machine ne remplace pas nécessairement l'intention. Elle aide à la préciser, à la confronter au réel et parfois simplement à la rendre réalisable.
 
-Le contenu industriel possède un avantage structurel de visibilité : précisément parce qu'il est industriel, il est produit en immense quantité.
+J'aime l'idée d'un **exhausteur de vision**.
 
-Un créateur passant trois mois sur un projet assisté par IA produit peut-être une œuvre.
+Un exhausteur n'invente pas nécessairement le goût de départ. Il rend plus perceptible quelque chose qui était déjà là.
 
-Une usine automatisée peut produire des dizaines de milliers de sorties pendant la même période.
+C'est cet usage que je veux défendre.
 
-Il est donc possible que notre perception de « l'art IA » soit fortement influencée par les personnes dont l'objectif est justement de maximiser le volume.
+Pas parce qu'il serait toujours bon. Pas parce qu'une intention humaine suffirait à excuser toutes les conséquences de l'IA. Mais parce qu'il me paraît intellectuellement faux de le confondre avec une chaîne automatisée dont le but est précisément de retirer l'humain du processus.
 
-### Attention
+## Créer n'a jamais voulu dire tout fabriquer soi-même
 
-Ne pas écrire que les usages exigeants sont majoritaires ou même nombreux sans données.
+Une partie du rejet de la création assistée par IA repose sur une idée intuitive : si tu n'as pas réalisé toi-même chaque élément, alors ce n'est plus vraiment ton travail.
 
-La proposition est uniquement :
+Mais nous n'appliquons déjà pas cette définition à la majorité des projets créatifs complexes.
 
-> **La fréquence avec laquelle nous rencontrons un type d'usage n'est pas nécessairement représentative de la profondeur de tous les usages possibles.**
+Un réalisateur ne fabrique pas ses caméras, ne construit pas chaque décor, ne joue pas chaque rôle et ne compose pas nécessairement la musique du film.
 
-### Analogie possible
+Un développeur de jeu peut utiliser un moteur qu'il n'a pas écrit, des bibliothèques open source, des polices, des sons ou des assets achetés sur une marketplace. Cela ne suffit pas à dire qu'il n'a pas créé son jeu.
 
-Le spam ne définit pas ce qu'est l'e-mail.
+Un photographe n'a pas fabriqué son appareil et un musicien n'a pas construit chaque instrument qu'il utilise.
 
-Les sites SEO médiocres ne définissent pas ce qu'est l'écriture numérique.
+L'existence d'éléments extérieurs ne détruit donc pas automatiquement l'acte créatif.
 
-Les applications mobiles opportunistes ne définissent pas ce qu'est le développement logiciel.
+Parce que l'art peut se trouver à plusieurs niveaux.
 
-L'analogie doit rester limitée : contrairement à l'e-mail, l'IA intervient directement dans la production du contenu. Mais elle permet d'introduire l'idée qu'un outil peut être massivement utilisé d'une manière sans que celle-ci épuise toutes ses fonctions.
+Il peut se trouver dans un élément particulier. Mais il peut aussi se trouver dans **la composition**, dans la manière dont des éléments qui n'ont rien d'artistique en eux-mêmes sont choisis, transformés, ordonnés et réunis par une intention cohérente.
 
----
+Un pixel isolé n'est pas une œuvre de pixel art.
 
-## 4. Deux usages presque opposés du même outil
+Une note isolée n'est pas une symphonie.
 
-### Usage A — Minimiser l'humain
+Un asset de marketplace n'est pas un jeu vidéo.
 
-Objectif : obtenir un produit exploitable avec le moins de travail, de jugement et de temps possible.
+Ce qui compte parfois n'est pas la provenance individuelle de chaque brique, mais **ce que quelqu'un décide de construire avec elles**.
 
-Caractéristiques :
+L'IA rend cette question beaucoup plus difficile parce qu'elle peut produire des briques extrêmement complexes. Dans une image générée à partir d'un prompt minimal, le modèle décide de milliers de détails que l'utilisateur n'a jamais consciemment choisis. Il me paraît donc difficile de mettre sur le même plan cette génération brute et un dessin entièrement exécuté par un illustrateur.
 
-- volume ;
-- faible coût unitaire ;
-- très peu d'itérations qualitatives ;
-- acceptation rapide du résultat ;
-- identité faible ;
-- humain interchangeable ;
-- succès mesuré principalement par rendement, clics ou revenus.
+Mais cela ne permet pas de conclure que toute œuvre contenant un composant généré est dépourvue d'auteur.
 
-### Usage B — Amplifier l'humain
+Il faut regarder le niveau auquel se situe la création.
 
-Objectif : utiliser la machine pour rendre réalisable ou améliorer quelque chose qu'une personne veut déjà construire.
+Une image générée peut n'être qu'un matériau au sein d'une composition plus vaste. Elle peut être retouchée, recomposée, intégrée à un univers, mise au service d'une narration, combinée à d'autres techniques et soumise à des dizaines de décisions qui n'existent que parce qu'une personne particulière poursuit une vision particulière.
 
-Caractéristiques possibles :
+La bonne question devient alors moins :
 
-- intention préalable ou progressivement découverte ;
-- nombreuses itérations ;
-- rejet fréquent des propositions ;
-- recherche de cohérence ;
-- combinaison de plusieurs outils et techniques ;
-- apprentissage nécessaire pour juger le résultat ;
-- transformations manuelles ;
-- résultat fortement dépendant des choix du créateur.
+> « Est-ce que chaque élément a été fabriqué manuellement par cette personne ? »
 
-### Formulation centrale de l'article
+que :
 
-> **Dans un cas, l'IA sert à produire malgré l'absence d'implication. Dans l'autre, elle sert à donner davantage de portée à une implication déjà présente.**
+> **« Pourquoi cette œuvre existe-t-elle précisément sous cette forme ? »**
 
-### Nuance essentielle
+Si la réponse est : « parce que le modèle a choisi et que l'utilisateur a accepté », l'agence humaine paraît faible.
 
-Ce ne sont pas deux catégories propres et parfaitement séparées.
+Si la réponse demande de raconter des centaines de choix, de refus, d'itérations, de transformations et d'arbitrages guidés par une même intention, la situation est très différente.
 
-Un créateur peut déléguer énormément certaines parties d'un projet et contrôler obsessionnellement d'autres parties. Une personne peut commencer sans vision précise et la découvrir grâce au dialogue avec l'outil.
+## Le droit français arrive à une logique étonnamment proche
 
-Nous sommes précisément dans une zone grise.
+Il faut ici corriger une formulation que l'on rencontre parfois — et que j'avais moi-même en tête : l'idée selon laquelle le droit français attribuerait la propriété intellectuelle d'une création avec IA **proportionnellement** à la quantité de créativité apportée par l'humain.
 
----
+Ce n'est pas exactement le droit français.
 
-## 5. L'IA comme exhausteur plutôt que comme origine
+Il n'existe pas, dans le Code de la propriété intellectuelle, de barème disant qu'une œuvre « 70 % humaine » donnerait 70 % de droit d'auteur.
 
-### Idée centrale
+L'article L111-1 du Code de la propriété intellectuelle part d'une règle plus classique : l'auteur d'une œuvre de l'esprit bénéficie du droit d'auteur du seul fait de sa création.[^cpi] La question difficile est donc de savoir ce qui peut être qualifié d'œuvre, et surtout où se trouve l'apport original d'un auteur humain.
 
-Pour certains créateurs, la fonction la plus intéressante de l'IA n'est pas : « invente quelque chose à ma place ».
+La jurisprudence européenne qui structure cette notion d'originalité insiste sur la possibilité pour l'auteur d'effectuer des **choix libres et créatifs** et d'imprimer ainsi sa personnalité à l'œuvre. Dans l'arrêt *Painer*, la Cour de justice de l'Union européenne observe par exemple que ces choix peuvent intervenir à plusieurs moments différents de la création d'une photographie : préparation, prise de vue, puis traitement.[^painer]
 
-Elle peut être :
+Et cette logique vient d'être appliquée directement aux productions réalisées avec l'IA générative.
 
-- « voici mon idée, trouve les failles » ;
-- « je bloque ici, quelles solutions existent ? » ;
-- « explique-moi la compétence qui me manque » ;
-- « donne-moi plusieurs alternatives pour que je puisse les comparer » ;
-- « cette scène ne produit pas l'émotion que je cherche, pourquoi ? » ;
-- « aide-moi à conserver la cohérence de ce système » ;
-- « comment puis-je techniquement atteindre ce résultat ? »
+Le 16 juillet 2026, le Conseil supérieur de la propriété littéraire et artistique — le CSPLA, rattaché au ministère de la Culture — a publié un rapport consacré au statut des productions de l'intelligence artificielle.[^cspla]
 
-### Concept à introduire
+Sa conclusion est particulièrement intéressante : il ne serait pas nécessaire de réinventer entièrement le droit d'auteur pour les créations hybrides. Une création faisant intervenir une IA peut être protégée si elle franchit le seuil d'originalité et porte la trace d'une véritable direction créative humaine.
 
-**Exhausteur de vision.**
+Le rapport propose de chercher cette originalité à trois moments :
 
-L'outil n'a pas besoin d'être la source de l'objectif. Il peut augmenter la capacité d'une personne à le préciser, le tester et l'exécuter.
+1. **en amont**, dans la conception et le paramétrage ;
+2. **pendant la génération**, dans les itérations et la direction donnée à l'outil ;
+3. **en aval**, dans la sélection, la retouche et l'intégration du résultat.
 
-### Risque à reconnaître
+Et le point le plus important est peut-être celui-ci : **un seul de ces moments peut suffire**, à condition que les choix créatifs de l'auteur soient effectivement perceptibles dans l'œuvre finale.
 
-Un interlocuteur extrêmement disponible peut aussi influencer progressivement la vision de celui qui l'utilise.
+À l'inverse, le rapport distingue ces créations hybrides des productions purement synthétiques, générées sans intervention humaine créative significative, qu'il considère étrangères au droit d'auteur.
 
-L'utilisateur pense-t-il encore par lui-même ? Se contente-t-il des premières solutions plausibles ? Les modèles homogénéisent-ils les projets en proposant les mêmes structures à tout le monde ?
+Cette distinction ressemble énormément à celle que j'essaie de formuler ici : **direction créative d'un côté, délégation de l'autre.**
 
-Ce sont de vraies questions. Elles n'annulent pas l'usage ; elles définissent ce qu'un bon usage doit apprendre à surveiller.
+Il faut toutefois être précis sur le statut de ce texte. Le rapport du CSPLA n'est pas une nouvelle loi votée en juillet 2026, ni une décision de justice créant automatiquement une règle pour tous les cas futurs. C'est un rapport officiel qui propose une méthode d'application du droit d'auteur existant aux créations avec IA.
 
----
+Et surtout, la logique n'est pas véritablement proportionnelle.
 
-## 6. Le créateur solitaire : ce que l'on oublie dans le récit romantique
+Le droit cherche moins à mesurer combien de travail humain a été fourni qu'à déterminer **si des choix créatifs humains originaux se retrouvent dans le résultat revendiqué**. La quantité de clics, d'heures ou de gestes manuels n'est pas le critère.
 
-### Fonction dans l'article
+Ce point est extrêmement important pour le débat artistique.
 
-Passer de l'abstraction à la raison pour laquelle cet outil peut compter humainement.
+Même le droit, qui doit pourtant tracer des frontières beaucoup plus précises qu'une discussion esthétique, ne semble pas trouver satisfaisante la question : « une IA a-t-elle été utilisée ? »
 
-### Idée centrale
+Il demande plutôt : **où sont les choix de l'auteur ?**
 
-Nous aimons les histoires du créateur seul qui apprend tout, travaille pendant des années et finit par réaliser son rêve.
+## L'IA peut augmenter la créativité individuelle et réduire la diversité collective
 
-Mais ces récits présentent un biais évident : nous racontons surtout ceux qui ont réussi.
+Cela ne signifie pas que l'IA serait un simple multiplicateur neutre de nos intentions.
 
-Un projet complexe peut demander :
+Elle peut aussi nous tirer vers elle.
 
-- programmation ;
-- illustration ;
-- animation ;
-- écriture ;
-- son ;
-- musique ;
-- design ;
-- gestion ;
-- marketing ;
-- connaissances juridiques ou commerciales.
+Une expérience publiée en 2024 dans *Science Advances* illustre particulièrement bien cette tension. Les chercheurs Anil Doshi et Oliver Hauser ont demandé à des participants d'écrire de courtes histoires. Certains écrivaient seuls, d'autres pouvaient demander une ou plusieurs idées à une IA générative.[^science]
 
-Peu de personnes disposent simultanément du temps, de l'argent et des compétences nécessaires.
+Les histoires des personnes ayant accès à des idées générées par IA ont été évaluées en moyenne comme plus créatives, mieux écrites et plus agréables à lire, avec un effet particulièrement important chez les participants initialement les moins performants sur une mesure de créativité.
 
-### Exemple possible
+Pris individuellement, c'est exactement la promesse de l'IA comme outil d'amplification : elle permet à quelqu'un d'atteindre un résultat qu'il aurait eu davantage de difficulté à atteindre seul.
 
-*Stardew Valley* peut servir de cas emblématique du projet presque solitaire devenu immense.
+Mais les chercheurs observent simultanément autre chose : **les histoires assistées par IA deviennent plus similaires entre elles.**
 
-**À documenter avant publication :** durée réelle du développement, contexte personnel du créateur, difficultés décrites dans des sources directes, rôle éventuel d'autres personnes au cours du projet.
+C'est peut-être l'un des résultats les plus importants pour penser la création avec ces outils.
 
-Ne pas utiliser Stardew Valley pour dire : « tout le monde peut réussir seul ».
+L'IA peut augmenter la capacité individuelle tout en diminuant la diversité collective.
 
-L'utiliser pour poser la question inverse : **combien de personnes ayant une vision comparable n'ont simplement jamais eu les ressources nécessaires pour la pousser jusqu'au bout ?**
+Les deux propositions peuvent être vraies en même temps.
 
-### Point philosophique
+Et cela donne une responsabilité supplémentaire au créateur.
 
-Pourquoi l'incapacité financière à payer un spécialiste devrait-elle être considérée comme une composante légitime de l'épreuve artistique ?
+Si l'on accepte passivement les solutions plausibles proposées par la machine, on risque de converger vers les mêmes structures, les mêmes formulations et les mêmes choix que tous les autres utilisateurs.
 
-Toutes les contraintes ne sont pas des vertus.
+Plus l'outil devient capable, plus **le goût, le refus et la direction** deviennent importants.
 
----
+L'abondance de possibilités ne supprime pas nécessairement le travail créatif. Elle peut déplacer le problème : il ne s'agit plus uniquement de savoir produire quelque chose, mais de savoir quelle chose mérite d'être produite.
 
-## 7. « Mais les limites font l'art »
+## Les limites font-elles l'art ?
 
-### Traiter l'objection sérieusement
+Une objection sérieuse consiste à dire que les difficultés techniques, les contraintes et les efforts nécessaires à leur dépassement font eux-mêmes partie de la création.
 
-Une bonne objection dira :
+Je pense que c'est vrai.
 
-> En apprenant à dessiner, coder, écrire ou composer soi-même, on ne fait pas qu'exécuter une intention préexistante. Les contraintes du médium transforment cette intention. Les erreurs produisent des découvertes. La compétence construit le goût. Retirer la difficulté peut donc retirer une partie du processus créatif.
+Apprendre à dessiner ne sert pas uniquement à déplacer correctement un crayon. Le processus construit le regard. Apprendre à écrire transforme la manière de penser. Apprendre la musique transforme l'oreille. Les erreurs, les contraintes et même certaines frustrations peuvent produire des découvertes qu'aucun plan initial n'aurait prévues.
 
-Cette objection est probablement vraie dans de nombreux cas.
+Il serait donc naïf de prétendre que supprimer une difficulté ne change jamais la création.
 
-### Réponse proposée
+Mais il n'est pas nécessaire de défendre cette position pour défendre l'IA.
 
-Il n'est pas nécessaire de nier cette valeur pour défendre la création assistée.
+D'abord parce que toutes les difficultés ne sont pas fécondes.
 
-L'IA ne produit pas un monde sans contraintes.
+Ne pas avoir assez d'argent pour engager quelqu'un, ne pas avoir accès à un mentor, perdre six mois sur une tâche périphérique ou devoir abandonner un projet parce qu'il faudrait maîtriser dix métiers ne constitue pas automatiquement une expérience artistique précieuse.
+
+Ensuite parce que l'IA ne crée pas un monde sans contraintes.
 
 Elle **déplace les contraintes**.
 
-Les problèmes deviennent par exemple :
+Obtenir un élément impressionnant devient parfois beaucoup plus simple. Obtenir cent éléments qui semblent appartenir au même univers reste difficile.
 
-- obtenir une cohérence entre des générations ;
-- maintenir une direction artistique ;
-- repérer les erreurs plausibles ;
-- comprendre suffisamment plusieurs disciplines pour juger les sorties ;
-- intégrer des éléments hétérogènes ;
-- lutter contre les choix moyens du modèle ;
-- transformer une abondance de possibilités en une décision claire ;
-- terminer réellement le projet.
+Générer dix propositions est facile. Savoir pourquoi neuf d'entre elles sont mauvaises ne l'est pas.
 
-### Formulation possible
+Obtenir une réponse technique est rapide. Être suffisamment compétent pour savoir si elle est correcte peut demander beaucoup de travail.
 
-> Une nouvelle technique ne supprime pas nécessairement la difficulté artistique. Elle change l'endroit où cette difficulté se trouve.
+Faire produire des composants indépendants devient accessible. Les intégrer dans un jeu, un film, un livre ou une expérience cohérente reste un problème d'une autre ampleur.
 
----
+Et surtout, aucun modèle ne peut décider objectivement quelle direction correspond à ce que **vous** vouliez exprimer.
 
-## 8. La cohérence : le problème que l'IA ne résout pas à votre place
+Il peut proposer.
 
-### Idée centrale
+Il peut argumenter.
 
-Produire des éléments impressionnants séparément devient de plus en plus facile.
+Il peut même vous convaincre d'une direction meilleure que celle que vous aviez initialement imaginée.
 
-Produire **un ensemble cohérent qui semble avoir une raison d'exister** reste difficile.
+Mais si vous lui déléguez également la décision de ce qui mérite d'être gardé, vous commencez réellement à disparaître du processus.
 
-L'IA peut proposer dix directions artistiques. Elle ne peut pas déterminer objectivement laquelle correspond à ce que vous voulez dire.
+## La question qui m'intéresse : l'humain est-il interchangeable ?
 
-Elle peut écrire dix scènes. Elle ne possède pas votre rapport intime au personnage.
+Je ne pense donc pas qu'il soit très utile de demander combien de pour cent d'une œuvre ont été faits par l'IA.
 
-Elle peut proposer dix mécaniques. Elle ne sait pas laquelle appartient au jeu que vous voulez réellement construire à moins que vous soyez capable de le lui imposer — et même alors, vous restez celui qui juge.
+Il existe une autre question que je trouve beaucoup plus intéressante :
 
-### Hypothèse forte
+> **Si je remplace la personne utilisant l'outil par quelqu'un d'autre, est-ce que j'obtiens essentiellement la même chose ?**
 
-À mesure que le coût de génération baisse, **la capacité à choisir pourrait devenir plus importante, pas moins.**
+Si n'importe qui peut écrire le même prompt, accepter la première sortie et obtenir un résultat équivalent, alors la contribution personnelle semble faible.
 
-Le problème créatif ne serait plus seulement : « comment produire cette chose ? »
+Mais plus le projet dépend du goût d'une personne, de son univers, de ses décisions, de ses refus, de ses obsessions et de sa manière de combiner les éléments, moins cette personne devient interchangeable.
 
-Il deviendrait de plus en plus :
+À un certain point, la machine est omniprésente dans le processus, mais le résultat reste profondément dépendant de celui qui la dirige.
 
-> « Parmi toutes les choses que je peux maintenant produire, laquelle mérite réellement d'exister dans mon projet ? »
+C'est là que se trouve, pour moi, la partie intéressante de la création avec IA.
 
-### Lien avec le « slop »
+Pas dans le fait d'avoir obtenu une image spectaculaire avec trois lignes de texte.
 
-C'est précisément ce filtre qui manque dans la production de masse.
+Pas dans la capacité à produire mille romans, mille chansons ou mille vidéos.
 
-Lorsque personne ne défend une vision, le modèle statistique devient de facto directeur artistique.
+Mais dans la possibilité pour quelqu'un qui avait **quelque chose à faire exister** de disposer soudain d'un ensemble de capacités qui lui étaient auparavant financièrement, techniquement ou temporellement inaccessibles.
 
-Et un outil optimisé pour produire une réponse plausible n'a aucune raison intrinsèque de défendre une singularité personnelle qu'on ne lui a pas imposée.
+## L'IA ne démocratise pas le goût. Elle démocratise l'ambition.
 
----
+L'IA peut permettre à davantage de personnes de produire.
 
-## 9. Le meilleur critère : l'humain est-il interchangeable ?
+Cela ne signifie pas qu'elle permettra à davantage de personnes de produire quelque chose de bon.
 
-### Introduire le test de substituabilité
+Elle ne fournit pas automatiquement une vision. Elle ne garantit pas le goût. Elle ne remplace pas la cohérence. Elle peut même, utilisée passivement, favoriser l'uniformisation que ses détracteurs lui reprochent.
 
-Imaginons que nous remplacions la personne utilisant l'outil par une autre personne ayant accès au même modèle.
+Mais elle peut permettre à une personne qui possède déjà une envie, un univers ou une obsession de tenter un projet qu'elle n'aurait jamais pu financer ou techniquement réaliser auparavant.
 
-Le résultat serait-il essentiellement identique ?
+Je pense que c'est là que nous allons voir apparaître certaines des créations les plus intéressantes des prochaines années.
 
-Dans une chaîne de contenu entièrement automatisée, probablement souvent oui : la personne est presque interchangeable.
+Des jeux indépendants dont l'ambition aurait autrefois nécessité un studio beaucoup plus important.
 
-Dans un projet où des centaines de choix sont guidés par un goût, une histoire, une obsession et une intention particulière, de moins en moins.
+Des univers littéraires plus vastes, potentiellement développés sur plusieurs médias par de petites équipes.
 
-### Proposition
+Des films ou des séries indépendantes capables d'atteindre une qualité technique auparavant réservée à des budgets considérables.
 
-> **Plus le résultat dépend de qui tient l'outil, plus il devient raisonnable de parler d'une contribution personnelle.**
+Certaines de ces œuvres seront mauvaises.
 
-Ce n'est pas un test scientifique ni juridique. C'est une intuition permettant de déplacer le débat de « quel outil ? » vers « quelle agence ? ».
+Beaucoup utiliseront probablement l'IA de manière paresseuse et produiront exactement le contenu sans saveur qui nourrit aujourd'hui son rejet.
 
----
+Mais d'autres seront portées par des personnes qui utiliseront cet outil non pas pour **éviter de créer**, mais pour enfin être capables de construire ce qu'elles essayaient de créer depuis longtemps.
 
-## 10. Alors, qu'est-ce que je défends exactement ?
+Et lorsque cela arrivera, je doute que la bonne question soit :
 
-### Clarifier la position avant la conclusion
+> « Combien de pixels cette personne a-t-elle fabriqués elle-même ? »
 
-Je ne défends pas la génération massive de contenu parce qu'elle utilise une technologie nouvelle.
+La question sera plutôt :
 
-Je ne défends pas l'idée qu'un prompt de dix mots confère automatiquement le même mérite qu'une pratique artistique développée pendant vingt ans.
+> **« Est-ce que quelqu'un avait quelque chose à nous montrer ? »**
 
-Je ne défends pas non plus l'idée que l'IA serait extérieure aux problèmes de droit, de travail ou de consentement.
-
-Je défends une proposition beaucoup plus limitée :
-
-> **Il existe des usages de l'IA dans lesquels la machine n'est pas utilisée pour remplacer une vision humaine, mais pour permettre à cette vision d'aller plus loin qu'elle ne le pourrait avec les moyens disponibles.**
-
-Et ces usages méritent d'être jugés sur ce qu'ils sont réellement plutôt qu'à travers les productions les plus paresseuses réalisées avec les mêmes technologies.
+C'est cette différence que je veux explorer dans *Zone Grise*.
 
 ---
 
-## Conclusion — Ce qui devient rare
+## Sources et lectures
 
-### Ouverture prospective
+[^pew]: Pew Research Center, *How Much of the Internet Is Written With AI?*, 20 août 2026 — https://www.pewresearch.org/data-labs/2026/08/20/how-much-of-the-internet-is-written-with-ai/
 
-L'IA pourrait rendre la production abondante.
+[^google2011]: Matt Cutts, Google, *Google search and search engine spam*, 21 janvier 2011 — https://googleblog.blogspot.com/2011/01/google-search-and-search-engine-spam.html
 
-Si presque tout le monde peut générer une belle image, un morceau acceptable, un prototype fonctionnel ou une page correctement écrite, ces capacités cesseront progressivement d'être suffisantes pour distinguer un projet.
+[^googleai]: Google Search Central, *Conseils de la recherche Google concernant l'utilisation de contenu généré par IA sur votre site Web* — https://developers.google.com/search/docs/fundamentals/using-gen-ai-content?hl=fr
 
-Ce qui pourrait devenir rare est autre chose :
+[^googlespam]: Google Search Central, *Règles concernant le spam dans la recherche sur le Web Google* — https://developers.google.com/search/docs/essentials/spam-policies?hl=fr
 
-- avoir quelque chose à dire ;
-- développer un goût reconnaissable ;
-- choisir ;
-- maintenir une cohérence ;
-- construire sur la durée ;
-- refuser les solutions faciles ;
-- terminer ;
-- prendre la responsabilité de ce que l'on met dans le monde.
+[^youtube]: YouTube, *Règles de monétisation des chaînes YouTube* — https://support.google.com/youtube/answer/1311392?hl=fr
 
-### Dernière idée
+[^kdp]: Amazon KDP, *Règles relatives au contenu* — https://kdp.amazon.com/fr_FR/help/topic/G200672390
 
-Peut-être que l'IA ne rendra pas la créativité inutile.
+[^cpi]: Code de la propriété intellectuelle, notamment articles L111-1 et L111-2 — https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006069414/LEGISCTA000006146348/
 
-Peut-être qu'en rendant la production extrêmement facile, **elle rendra au contraire beaucoup plus visible la différence entre produire quelque chose et vouloir réellement créer quelque chose.**
+[^painer]: CJUE, 1er décembre 2011, *Eva-Maria Painer c. Standard VerlagsGmbH e.a.*, C-145/10, notamment points 88 à 94 — https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:62010CJ0145
 
----
+[^cspla]: Conseil supérieur de la propriété littéraire et artistique, *Rapport de mission sur le statut des productions de l'intelligence artificielle*, 16 juillet 2026 — https://www.culture.gouv.fr/nous-connaitre/organisation-du-ministere/conseil-superieur-de-la-propriete-litteraire-et-artistique-cspla/travaux-et-publications-du-cspla/missions-du-cspla/rapport-de-mission-sur-le-statut-des-productions-de-l-intelligence-artificielle
 
-# Objections à traiter ou réserver à d'autres articles
-
-L'article ne doit pas devenir une encyclopédie. Certaines objections peuvent être reconnues ici puis traitées séparément :
-
-### « Les modèles ont été entraînés sur le travail d'artistes sans consentement »
-
-Question majeure, mais différente de la question de l'agence du créateur utilisateur. À traiter dans un article dédié sans la contourner.
-
-### « Même avec une vision, tu prends le travail de quelqu'un qui aurait pu être payé »
-
-Question économique réelle. Elle concerne aussi le rapport entre démocratisation des moyens de production et rémunération des spécialistes.
-
-### « Si tu ne peux pas réaliser une chose, tu ne peux pas correctement juger si elle est bonne »
-
-À traiter dans l'article sur compétence d'exécution vs compétence de direction.
-
-### « Tout le monde pense que son usage est le bon usage »
-
-Objection importante. D'où la nécessité de critères plus exigeants que la simple déclaration d'intention.
-
-### « Le résultat peut avoir une intention et rester générique »
-
-Oui. L'intention est nécessaire à la thèse défendue ici, mais elle n'est certainement pas suffisante pour garantir la qualité.
-
----
-
-# Éléments à rechercher avant rédaction finale
-
-## Indispensables
-
-- histoire et économie des content farms avant les LLM ;
-- exemples récents et bien documentés de contenu généré massivement ;
-- politiques ou déclarations de plateformes concernant ce type de contenu ;
-- un ou deux créateurs utilisant l'IA dans un workflow à forte direction humaine ;
-- témoignages directs de créateurs indépendants sur le coût humain de projets multidisciplinaires ;
-- documentation sérieuse sur le parcours de *Stardew Valley* si l'exemple est conservé.
-
-## Très utiles
-
-- travaux sur l'automatisation et le déplacement des compétences ;
-- histoire d'outils créatifs autrefois accusés de « faciliter » excessivement le travail ;
-- exemples d'art reposant sur sélection, montage, appropriation ou composants préexistants ;
-- recherches sur choix, contraintes et créativité.
-
-## À vérifier particulièrement
-
-- toute affirmation quantitative sur la proportion de contenu IA ;
-- toute affirmation sur les revenus générés par du contenu automatisé ;
-- toute généralisation sur ce que « les artistes » pensent ;
-- toute comparaison historique qui pourrait masquer des différences importantes avec les modèles génératifs.
-
----
-
-# Ton de rédaction souhaité
-
-- écrire à la première personne lorsque la position est normative : « je pense », « je défends » ;
-- ne pas utiliser « évidemment » pour faire passer une affirmation contestable ;
-- commencer par reconnaître le phénomène qui motive le rejet ;
-- utiliser peu de jargon ;
-- donner des exemples concrets avant les concepts abstraits ;
-- réserver les phrases les plus tranchées aux conclusions réellement soutenues ;
-- conserver une forme d'enthousiasme pour les possibilités créatives sans minimiser les coûts sociaux possibles.
-
-# Phrase-guide
-
-Si une section s'éloigne trop du sujet, revenir à cette question :
-
-> **Est-ce que cette utilisation de l'IA retire l'humain du processus, ou lui permet-elle de pousser plus loin quelque chose qu'il essaie réellement d'y mettre ?**
+[^science]: Anil R. Doshi et Oliver P. Hauser, *Generative AI enhances individual creativity but reduces the collective diversity of novel content*, Science Advances, 12 juillet 2024 — https://doi.org/10.1126/sciadv.adn5290
