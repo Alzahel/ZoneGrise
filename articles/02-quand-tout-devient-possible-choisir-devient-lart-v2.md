@@ -4,9 +4,7 @@
 
 Il y a encore quelques années, face à beaucoup de problèmes créatifs, la difficulté était assez évidente : réussir à produire ce qu’on avait en tête.
 
-Écrire cette scène correctement. Dessiner ce personnage. Trouver cette mélodie. Programmer cette mécanique. Obtenir ce plan.
-
-Aujourd’hui, dans certaines parties du processus, le problème commence à devenir presque inverse.
+Écrire cette scène correctement. Dessiner ce personnage. Trouver cette mélodie. Programmer cette mécanique. Obtenir ce plan. Aujourd’hui, le problème commence à devenir presque inverse.
 
 Je peux demander dix formulations d’une phrase. Vingt directions pour une image. Plusieurs structures pour une scène. Des variantes d’un concept, d’une interface, d’un morceau de code ou d’un personnage.
 
