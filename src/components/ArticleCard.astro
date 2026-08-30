@@ -1,0 +1,25 @@
+---
+import type { ArticleMeta } from '../data/articles';
+
+interface Props {
+  id: string;
+  meta: ArticleMeta;
+  featured?: boolean;
+}
+
+const { id, meta, featured = false } = Astro.props;
+const number = String(meta.order).padStart(2, '0');
+---
+
+<article class:list={['article-card', { featured }]}> 
+  <a href={`/articles/${id}`} class="article-card-link">
+    <div class="article-card-meta">
+      <span>Essai {number}</span>
+      <span class="dot" aria-hidden="true"></span>
+      <span>{meta.tags.join(' · ')}</span>
+    </div>
+    <h2>{meta.title}</h2>
+    <p>{meta.description}</p>
+    <span class="read-link">Lire l’essai <span aria-hidden="true">→</span></span>
+  </a>
+</article>

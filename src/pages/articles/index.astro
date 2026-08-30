@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { articleMeta, getArticleMeta } from '../../data/articles';
+
+const articles = (await getCollection('articles'))
+  .filter((article) => articleMeta[article.id])
+  .sort((a, b) => getArticleMeta(b.id).order - getArticleMeta(a.id).order);
+---
+
+<BaseLayout title="Articles" description="Tous les essais publiés sur Zone Grise.">
+  <section class="page-intro shell narrow-intro">
+    <p class="eyebrow">Articles</p>
+    <h1>Explorer la zone grise.</h1>
+    <p>Des essais courts, chacun centré sur une question. Les dossiers plus longs viendront lorsque plusieurs textes auront suffisamment creusé le même terrain.</p>
+  </section>
+
+  <section class="shell section-block article-list">
+    {articles.map((article) => (
+      <ArticleCard id={article.id} meta={getArticleMeta(article.id)} />
+    ))}
+  </section>
+</BaseLayout>

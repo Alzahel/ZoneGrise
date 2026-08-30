@@ -1,0 +1,58 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { articleMeta, getArticleMeta } from '../../data/articles';
+
+export async function getStaticPaths() {
+  const articles = (await getCollection('articles')).filter((article) => articleMeta[article.id]);
+  return articles.map((article) => ({
+    params: { id: article.id },
+    props: { article },
+  }));
+}
+
+interface Props {
+  article: CollectionEntry<'articles'>;
+}
+
+const { article } = Astro.props;
+const meta = getArticleMeta(article.id);
+const { Content } = await render(article);
+
+const allArticles = (await getCollection('articles'))
+  .filter((item) => articleMeta[item.id])
+  .sort((a, b) => getArticleMeta(a.id).order - getArticleMeta(b.id).order);
+const index = allArticles.findIndex((item) => item.id === article.id);
+const previous = index > 0 ? allArticles[index - 1] : undefined;
+const next = index < allArticles.length - 1 ? allArticles[index + 1] : undefined;
+---
+
+<BaseLayout title={meta.title} description={meta.description}>
+  <article class="article-shell shell">
+    <header class="article-header">
+      <a class="back-link" href="/articles">← Tous les articles</a>
+      <div class="article-kicker">Essai {String(meta.order).padStart(2, '0')} · {meta.tags.join(' · ')}</div>
+      <h1>{meta.title}</h1>
+      <p class="article-deck">{meta.description}</p>
+    </header>
+
+    <div class="article-prose">
+      <Content />
+    </div>
+
+    <nav class="article-nav" aria-label="Articles précédent et suivant">
+      {previous ? (
+        <a href={`/articles/${previous.id}`}>
+          <span>Précédent</span>
+          <strong>{getArticleMeta(previous.id).title}</strong>
+        </a>
+      ) : <span></span>}
+      {next ? (
+        <a class="next" href={`/articles/${next.id}`}>
+          <span>Suivant</span>
+          <strong>{getArticleMeta(next.id).title}</strong>
+        </a>
+      ) : <span></span>}
+    </nav>
+  </article>
+</BaseLayout>
