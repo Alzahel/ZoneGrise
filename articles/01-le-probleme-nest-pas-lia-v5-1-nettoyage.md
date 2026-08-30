@@ -24,7 +24,7 @@ C’est ce deuxième usage qui m’intéresse.
 
 Produire beaucoup de choses médiocres parce que la quantité finit par rapporter n’est pas une invention nouvelle.
 
-Bien avant ChatGPT, nous avions déjà les fermes de contenu, les sites fabriqués pour le SEO, le spam, les copies opportunistes de tendances et toutes sortes de productions dont l’objectif principal était d’occuper le plus d’espace possible au moindre coût.
+Bien avant ChatGPT, nous avions déjà les sites fabriqués pour le SEO, le spam, les copies opportunistes de tendances et toutes sortes de productions dont l’objectif principal était d’occuper le plus d’espace possible au moindre coût.
 
 Dès 2011, Google parlait publiquement des *content farms* et cherchait à réduire leur visibilité dans les résultats de recherche.
 
