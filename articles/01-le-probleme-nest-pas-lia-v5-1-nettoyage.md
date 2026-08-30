@@ -70,7 +70,7 @@ On peut lui dire :
 
 « Donne-moi plusieurs pistes. Je sais que celles que j’ai trouvées ne me conviennent pas, mais je ne sais pas encore formuler ce que je cherche. »
 
-Dans ces moments-là, je ne demande pas à la machine de me débarrasser du projet. Je lui demande de m’aider à aller plus loin.
+Dans ces moments-là, je ne demande pas à la machine de me débarrasser. Je lui demande de m’aider à aller plus loin.
 
 J’aime assez l’image d’un **exhausteur de goût** pour décrire cet usage : quelque chose qui ne remplace pas ce qui était là au départ, mais qui aide à le faire ressortir, à le préciser ou à le pousser plus loin.
 
@@ -80,11 +80,11 @@ Pour quelqu’un qui travaille seul, cette différence est immense.
 
 Créer seul n’est pas difficile uniquement parce qu’il faut beaucoup travailler. C’est difficile parce qu’il faut prendre énormément de décisions seul. On doute, on tourne autour d’un problème sans savoir s’il vient de l’idée ou de notre manière de l’exécuter, on ignore parfois quelle est la prochaine étape et on finit par regarder l’ensemble du projet en se demandant pourquoi on a cru qu’on pourrait arriver au bout.
 
-Pouvoir discuter du projet avec un outil qui en suit suffisamment le contexte, pose des objections, explique un domaine mal connu ou aide simplement à remettre de l’ordre dans ce qu’on essaie de faire peut changer beaucoup de choses.
+Pouvoir échanger avec un outil qui en suit suffisamment le contexte, pose des objections, explique un domaine mal connu ou aide simplement à remettre de l’ordre dans ce qu’on essaie de faire peut changer beaucoup de choses.
 
 Pas parce qu’il a toujours raison ou que toutes ses réponses sont bonnes. Elles ne le sont pas. Il se trompe, invente, simplifie, propose parfois des solutions banales ou complètement à côté.
 
-Mais il devient possible de maintenir une conversation autour du projet là où, auparavant, il fallait souvent soit connaître la bonne personne, soit posséder soi-même la compétence, soit rester bloqué.
+Mais il devient possible de maintenir une conversation cohérente et continue dans le temps autour de son projet, là où, auparavant, il fallait souvent soit connaître la bonne personne, soit posséder soi-même la compétence, soit rester bloqué.
 
 L’utiliser correctement suppose de rester capable de lui dire non, de **garder le dernier mot**.
 
@@ -118,7 +118,7 @@ Elle peut remplacer une tâche pénible, une compétence que l’on n’a pas en
 
 Ce sont des usages très différents.
 
-Je ne cherche donc pas à défendre « l’art IA » comme un bloc, ni à prétendre que toutes les utilisations se valent. Je veux défendre une idée plus simple : **la présence de l’IA, à elle seule, ne nous dit pas encore où se trouve la créativité.**
+Je ne cherche donc pas à défendre « l’art IA » comme un bloc, ni à prétendre que toutes les utilisations se valent. Je veux défendre une idée plus simple : **la présence de l’IA, à elle seule, ne nous dit pas encore où se trouve la créativité et ne crie surtout pas son absence.**
 
 Pour le savoir, il faut regarder ce que la personne cherchait à faire, les décisions qu’elle a gardées, celles qu’elle a déléguées, ce qu’elle a refusé et la raison pour laquelle le résultat final existe précisément sous cette forme.
 
