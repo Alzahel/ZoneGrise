@@ -40,7 +40,7 @@ Et le résultat est assez prévisible.
 
 Si personne n’a besoin de se demander si l’image est vraiment bonne, si le texte exprime quelque chose, si la vidéo apporte quoi que ce soit ou si le résultat correspond à une vision particulière, il n’y a aucune raison que cette production ait beaucoup de personnalité.
 
-Le problème n’est alors pas seulement que l’IA génère le contenu. Le problème, c’est que **tout le processus est organisé pour que personne n’ait besoin de vraiment s’en soucier**.
+Le problème n’est alors pas seulement que l’IA génère le contenu. Le problème, c’est que **tout le processus est organisé pour que personne n’ait besoin de s’en soucier**.
 
 C’est peut-être une partie de ce que l’on désigne lorsqu’on parle de contenus IA « sans âme ».
 
