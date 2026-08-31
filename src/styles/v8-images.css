@@ -1,12 +1,14 @@
 @layer components {
-  /* V8 — les images apportent de la matière sans transformer Zone Grise en galerie. */
+  /* V9 — les visuels sont des planches éditoriales 4:3. On conserve leur cadrage,
+     leur texture et leur netteté : pas de recadrage panoramique, pas de filtre,
+     pas de zoom CSS qui force une nouvelle interpolation du bitmap. */
 
   .article-card-media {
     position: relative;
     margin: 0;
     overflow: hidden;
     background: var(--paper-deep);
-    aspect-ratio: 1.56 / 1;
+    aspect-ratio: 4 / 3;
   }
 
   .article-card-media::after {
@@ -18,17 +20,12 @@
   }
 
   .article-card-media img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
-    filter: saturate(0.84) contrast(0.98);
-    transition: transform 260ms ease, filter 260ms ease;
-  }
-
-  .article-card-link:hover .article-card-media img {
-    transform: scale(1.018);
-    filter: saturate(0.96) contrast(1.01);
+    image-rendering: auto;
   }
 
   /* Les listes restent des lignes éditoriales : image + texte, jamais des cartes flottantes. */
@@ -63,7 +60,7 @@
     margin-top: 13px;
   }
 
-  /* Sur une ligne sur deux, le cadrage bouge légèrement : même publication, images non interchangeables. */
+  /* Sur une ligne sur deux, le rythme bouge légèrement sans déformer l'image. */
   .article-grid .article-card:nth-child(even) .article-card-media {
     transform: translateY(10px);
   }
@@ -81,8 +78,8 @@
 
   .article-card.featured .article-card-media {
     grid-column: 2;
-    aspect-ratio: 1.34 / 1;
-    transform: translateY(8px);
+    aspect-ratio: 4 / 3;
+    transform: none;
   }
 
   .article-card.featured .article-card-content {
@@ -102,10 +99,11 @@
     max-width: 560px;
   }
 
-  /* Image d'ouverture : une planche éditoriale entre le titre et le corps. */
+  /* Image d'ouverture : on montre la planche entière. La largeur reste volontairement
+     sous la largeur native des fichiers 1448 px afin de ne jamais les agrandir sur desktop. */
   .article-hero-media {
     position: relative;
-    width: min(820px, 82%);
+    width: min(960px, 88%);
     margin: clamp(62px, 7vw, 92px) auto 0;
     overflow: visible;
   }
@@ -142,22 +140,23 @@
   .article-hero-media img {
     display: block;
     width: 100%;
-    aspect-ratio: 1.56 / 1;
-    object-fit: cover;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
     object-position: center;
     background: var(--paper-deep);
-    filter: saturate(0.88) contrast(1.01);
+    image-rendering: auto;
   }
 
   .article-hero-media + .article-layout {
     margin-top: clamp(72px, 8vw, 102px);
   }
 
-  /* À propos : le bureau donne un visage au motif personnel avant que le texte commence. */
+  /* À propos : même principe, aucune coupe dans la composition. */
   .about-visual {
     position: relative;
     display: grid;
-    grid-template-columns: 150px minmax(0, 720px) 1fr;
+    grid-template-columns: 150px minmax(0, 900px) 1fr;
     gap: clamp(38px, 6vw, 82px);
     margin-top: clamp(42px, 5vw, 72px);
   }
@@ -174,16 +173,39 @@
 
   .about-visual img {
     grid-column: 2 / span 2;
-    width: min(760px, 100%);
-    aspect-ratio: 1.535 / 1;
-    object-fit: cover;
+    width: min(960px, 100%);
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
     object-position: center;
-    filter: saturate(0.82) contrast(0.98);
+    image-rendering: auto;
     box-shadow: 22px 22px 0 color-mix(in srgb, var(--paper-deep) 66%, transparent);
   }
 
   .about-visual + .about-personal {
     padding-top: clamp(88px, 10vw, 138px);
+  }
+
+  /* La couverture d'accueil peut accueillir la planche 4:3 haute définition sans
+     reprendre les contraintes des vignettes d'article. */
+  .home-cover-visual {
+    position: relative;
+    width: 100%;
+    margin: clamp(52px, 6vw, 82px) auto 0;
+    background: var(--paper-deep);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+  }
+
+  .home-cover-visual img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    object-position: center;
+    image-rendering: auto;
   }
 
   @media (max-width: 1040px) {
@@ -206,11 +228,11 @@
     }
 
     .article-hero-media {
-      width: min(780px, 90%);
+      width: min(900px, 92%);
     }
 
     .about-visual {
-      grid-template-columns: 110px minmax(0, 680px);
+      grid-template-columns: 110px minmax(0, 820px);
       justify-content: center;
       gap: 42px;
     }
@@ -250,7 +272,7 @@
     .article-card.featured .article-card-media,
     .article-grid .article-card:nth-child(even) .article-card-media {
       width: 100%;
-      aspect-ratio: 1.56 / 1;
+      aspect-ratio: 4 / 3;
       transform: none;
     }
 
@@ -301,6 +323,10 @@
 
     .about-visual + .about-personal {
       padding-top: 78px;
+    }
+
+    .home-cover-visual {
+      margin-top: 44px;
     }
   }
 }
