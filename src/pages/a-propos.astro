@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../lib/paths';
 ---
 
 <BaseLayout title="À propos" description="Pourquoi Zone Grise existe et d’où vient le projet.">
@@ -10,6 +11,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
     <h1>Pourquoi<br /><span>Zone Grise ?</span></h1>
   </section>
+
+  <figure class="about-visual shell">
+    <img
+      src={withBase('images/about-atelier.jpg')}
+      alt="Bureau créatif couvert de carnets, de feuilles et de notes, dont la phrase « Trop d’idées. Pas assez de temps. »"
+      decoding="async"
+    />
+  </figure>
 
   <section class="about-personal shell">
     <aside class="about-personal-aside" aria-hidden="true">
