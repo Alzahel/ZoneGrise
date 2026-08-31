@@ -20,7 +20,10 @@ const number = String(meta.order).padStart(2, '0');
         <img
           src={withBase(meta.image)}
           alt={meta.imageAlt ?? ''}
+          width="1448"
+          height="1086"
           loading={featured ? 'eager' : 'lazy'}
+          fetchpriority={featured ? 'high' : 'auto'}
           decoding="async"
         />
       </figure>
