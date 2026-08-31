@@ -7,6 +7,7 @@ import '../styles/v5.css';
 import '../styles/v5-1.css';
 import '../styles/v7.css';
 import '../styles/v8-images.css';
+import '../styles/v9-dark.css';
 import { stripBase, withBase } from '../lib/paths';
 
 interface Props {
@@ -36,6 +37,24 @@ const currentPath = stripBase(Astro.url.pathname);
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#fbf4e7" />
+    <script is:inline>
+      (() => {
+        const key = 'zone-grise-theme';
+        let stored = null;
+        try {
+          stored = localStorage.getItem(key);
+        } catch {}
+
+        const systemDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false;
+        const theme = stored === 'dark' || stored === 'light'
+          ? stored
+          : systemDark ? 'dark' : 'light';
+
+        document.documentElement.dataset.theme = theme;
+        const themeColor = document.querySelector('meta[name="theme-color"]');
+        themeColor?.setAttribute('content', theme === 'dark' ? '#171613' : '#fbf4e7');
+      })();
+    </script>
     <link rel="canonical" href={canonical} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -63,6 +82,16 @@ const currentPath = stripBase(Astro.url.pathname);
         <nav aria-label="Navigation principale">
           <a class:list={{ active: currentPath.startsWith('/articles') }} href={withBase('articles')}>Articles</a>
           <a class:list={{ active: currentPath === '/a-propos' }} href={withBase('a-propos')}>À propos</a>
+          <button
+            class="theme-toggle"
+            type="button"
+            data-theme-toggle
+            aria-label="Activer le mode sombre"
+            aria-pressed="false"
+          >
+            <span class="theme-toggle-mark" aria-hidden="true"></span>
+            <span class="theme-toggle-label" data-theme-label>Nuit</span>
+          </button>
         </nav>
       </div>
     </header>
@@ -84,5 +113,48 @@ const currentPath = stripBase(Astro.url.pathname);
         </div>
       </div>
     </footer>
+
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        const button = document.querySelector('[data-theme-toggle]');
+        const label = document.querySelector('[data-theme-label]');
+        const themeColor = document.querySelector('meta[name="theme-color"]');
+        const media = window.matchMedia('(prefers-color-scheme: dark)');
+        const key = 'zone-grise-theme';
+
+        if (!(button instanceof HTMLButtonElement)) return;
+
+        const syncControl = () => {
+          const dark = root.dataset.theme === 'dark';
+          button.setAttribute('aria-pressed', String(dark));
+          button.setAttribute('aria-label', dark ? 'Activer le mode clair' : 'Activer le mode sombre');
+          button.title = dark ? 'Passer au mode clair' : 'Passer au mode sombre';
+          if (label) label.textContent = dark ? 'Jour' : 'Nuit';
+          themeColor?.setAttribute('content', dark ? '#171613' : '#fbf4e7');
+        };
+
+        button.addEventListener('click', () => {
+          const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+          root.dataset.theme = next;
+          try {
+            localStorage.setItem(key, next);
+          } catch {}
+          syncControl();
+        });
+
+        media.addEventListener?.('change', (event) => {
+          let stored = null;
+          try {
+            stored = localStorage.getItem(key);
+          } catch {}
+          if (stored === 'light' || stored === 'dark') return;
+          root.dataset.theme = event.matches ? 'dark' : 'light';
+          syncControl();
+        });
+
+        syncControl();
+      })();
+    </script>
   </body>
 </html>
