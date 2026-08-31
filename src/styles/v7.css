@@ -1,0 +1,534 @@
+@layer base {
+  :root {
+    --paper: #fbf4e7;
+    --paper-deep: #f1e5d2;
+    --paper-light: #fffaf2;
+    --ink: #15120f;
+    --body: #302820;
+    --muted: #776c61;
+    --line: #ddcfbd;
+    --accent: #a94f3a;
+    --accent-soft: #efd3c5;
+    --zg-black: #15120f;
+    --zg-gray: #a79b8f;
+    --zg-light: #fbf4e7;
+  }
+}
+
+@layer components {
+  /* V7 — revenir à V5.1, puis créer de la vie par la tension plutôt que par la couleur. */
+
+  .site-header {
+    background: color-mix(in srgb, var(--paper) 96%, transparent);
+  }
+
+  .wordmark-mark {
+    position: relative;
+    width: 31px;
+    height: 11px;
+    border: 0;
+    background: linear-gradient(
+      90deg,
+      var(--ink) 0 34%,
+      #a79b8f 34% 65%,
+      transparent 65% 100%
+    );
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 28%, transparent);
+  }
+
+  /* Un léger défaut d'alignement dans le signe : trois zones qui ne coïncident jamais tout à fait. */
+  .wordmark-mark::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: -3px;
+    width: 10px;
+    height: 3px;
+    background: #a79b8f;
+  }
+
+  .wordmark-mark::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -2px;
+    width: 9px;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  .site-header nav a:hover,
+  .site-header nav a.active,
+  .footer-links a:hover,
+  .text-link,
+  .read-link {
+    color: var(--accent);
+  }
+
+  /* ACCUEIL — pas de panneau, mais une vraie frontière qui traverse la composition. */
+  .hero-v4 {
+    min-height: auto;
+    padding-top: clamp(66px, 8vw, 106px);
+    overflow: clip;
+  }
+
+  .hero-v4::before {
+    left: 57%;
+    top: clamp(154px, 16vw, 214px);
+    bottom: 54px;
+    width: 22px;
+    opacity: 1;
+    background: linear-gradient(
+      180deg,
+      var(--ink) 0 18%,
+      transparent 18% 27%,
+      #a79b8f 27% 63%,
+      transparent 63% 76%,
+      color-mix(in srgb, var(--accent) 72%, var(--paper)) 76% 83%,
+      transparent 83% 100%
+    );
+  }
+
+  .hero-v4::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    left: calc(57% - 44px);
+    top: clamp(335px, 36vw, 454px);
+    width: 88px;
+    height: 1px;
+    background: var(--ink);
+  }
+
+  .hero-v4 .hero-grid {
+    grid-template-columns: minmax(0, 1.3fr) minmax(320px, 0.7fr);
+    gap: clamp(34px, 5vw, 72px);
+    align-items: center;
+  }
+
+  .hero-v4 h1 {
+    z-index: 1;
+  }
+
+  .hero-v4 h1 span:first-child {
+    transform: translateX(-0.018em);
+  }
+
+  .hero-v4 h1 span + span {
+    margin-left: clamp(44px, 7.5vw, 122px);
+    color: #8d8175;
+    transform: translateY(0.065em);
+  }
+
+  .hero-v4 .hero-copy {
+    z-index: 2;
+    max-width: 470px;
+    margin-left: -18px;
+    padding: 28px 0 18px 38px;
+    background: transparent;
+    box-shadow: none;
+    transform: translateY(clamp(34px, 4vw, 52px));
+  }
+
+  .hero-v4 .hero-copy::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 1px;
+    height: 72%;
+    background: linear-gradient(
+      180deg,
+      var(--ink) 0 39%,
+      #a79b8f 39% 71%,
+      transparent 71% 100%
+    );
+  }
+
+  .hero-v4 .hero-lede {
+    color: var(--body);
+  }
+
+  .hero-v4 .hero-note {
+    max-width: 330px;
+    margin-left: clamp(14px, 2vw, 28px);
+  }
+
+  .hero-v4 .hero-rule {
+    height: 10px;
+    margin-top: clamp(86px, 10vw, 124px);
+    background: linear-gradient(
+      90deg,
+      var(--ink) 0 27%,
+      transparent 27% 31%,
+      #a79b8f 31% 52%,
+      transparent 52% 70%,
+      color-mix(in srgb, var(--accent) 64%, var(--paper)) 70% 76%,
+      transparent 76% 100%
+    );
+  }
+
+  .cover-folio::after {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      var(--ink) 0 36%,
+      transparent 36% 40%,
+      #a79b8f 40% 63%,
+      transparent 63% 100%
+    );
+  }
+
+  /* La couleur redevient un murmure, jamais un panneau. */
+  .featured-section .eyebrow,
+  .reading-section .eyebrow,
+  .manifesto-intro .eyebrow {
+    color: var(--accent);
+  }
+
+  /* SECTIONS — filets interrompus et légers changements d'axe. */
+  .featured-section .section-heading::after,
+  .reading-section .row-heading::after,
+  .manifesto-intro::after {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      var(--ink) 0 31%,
+      transparent 31% 35%,
+      #a79b8f 35% 58%,
+      transparent 58% 100%
+    );
+  }
+
+  .featured-section .section-heading > p:last-child {
+    transform: translateY(7px);
+  }
+
+  /* Le motif reste présent, mais il se décale légèrement au lieu de devenir une icône répétée au millimètre. */
+  .article-card-number,
+  .article-card.featured .article-card-number {
+    background: linear-gradient(
+      90deg,
+      var(--ink) 0 34%,
+      transparent 34% 38%,
+      #a79b8f 38% 67%,
+      transparent 67% 100%
+    );
+  }
+
+  .article-card.featured .article-card-number {
+    transform: translateY(12px);
+  }
+
+  .article-card-link::after {
+    left: 74px;
+    background: linear-gradient(
+      90deg,
+      #d4c8b8 0 64%,
+      transparent 64% 70%,
+      color-mix(in srgb, var(--accent) 58%, var(--paper)) 70% 74%,
+      transparent 74% 100%
+    );
+  }
+
+  .reading-section .article-card:nth-child(even) .article-card-content {
+    transform: translateX(clamp(18px, 2.7vw, 38px));
+  }
+
+  .reading-section .article-card:nth-child(odd) .article-card-content {
+    transform: translateX(clamp(-4px, -0.5vw, -10px));
+  }
+
+  .reading-section .article-card:nth-child(even) .read-link {
+    transform: translateY(-9px);
+  }
+
+  .reading-section .article-card:nth-child(odd) .read-link {
+    transform: translateY(12px);
+  }
+
+  /* Trois questions : même structure, trois positions différentes. */
+  .manifesto-band::before {
+    width: min(450px, 50vw);
+    height: 10px;
+    background: linear-gradient(
+      90deg,
+      var(--ink) 0 24%,
+      transparent 24% 30%,
+      #a79b8f 30% 52%,
+      transparent 52% 78%,
+      color-mix(in srgb, var(--accent) 52%, var(--paper)) 78% 84%,
+      transparent 84% 100%
+    );
+  }
+
+  .principle:nth-child(2) {
+    padding-top: 54px;
+    background: transparent;
+    transform: translateY(24px);
+  }
+
+  .principle:nth-child(3) {
+    transform: translateY(-16px);
+  }
+
+  .principle:nth-child(2)::after {
+    content: '';
+    position: absolute;
+    left: 34px;
+    top: 20px;
+    width: 62px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  /* ARTICLE — titre et texte restent calmes ; la marge et les citations portent l'incertitude. */
+  .article-header h1 {
+    transform: translateX(clamp(-10px, -1vw, -18px));
+  }
+
+  .article-header-rule {
+    width: min(720px, 74%);
+    height: 10px;
+    margin-left: clamp(24px, 4vw, 60px);
+    background: linear-gradient(
+      90deg,
+      var(--ink) 0 30%,
+      transparent 30% 35%,
+      #a79b8f 35% 58%,
+      transparent 58% 81%,
+      color-mix(in srgb, var(--accent) 54%, var(--paper)) 81% 86%,
+      transparent 86% 100%
+    );
+  }
+
+  .article-kicker::before {
+    width: 84px;
+    background: linear-gradient(
+      90deg,
+      var(--ink) 0 43%,
+      transparent 43% 50%,
+      #a79b8f 50% 74%,
+      transparent 74% 100%
+    );
+  }
+
+  .article-prose h2::before {
+    color: var(--accent);
+  }
+
+  .article-prose h2:nth-of-type(even) {
+    transform: translateX(clamp(8px, 1.5vw, 18px));
+  }
+
+  .article-rail .rail-label {
+    background: linear-gradient(
+      90deg,
+      var(--ink) 0 31%,
+      transparent 31% 39%,
+      #a79b8f 39% 66%,
+      transparent 66% 100%
+    );
+  }
+
+  .article-rail li:nth-child(even) a {
+    transform: translateX(5px);
+  }
+
+  .article-prose blockquote {
+    width: calc(100% + 98px);
+    margin-left: -42px;
+    padding: 30px 34px 32px 46px;
+    background: linear-gradient(
+      90deg,
+      var(--ink) 0 11%,
+      transparent 11% 15%,
+      #b5a99d 15% 24%,
+      transparent 24% 27%,
+      var(--paper-light) 27% 100%
+    );
+    box-shadow: inset 0 -1px 0 var(--line);
+  }
+
+  .article-prose blockquote p {
+    margin-left: 24%;
+  }
+
+  .article-prose blockquote:nth-of-type(even) {
+    margin-left: -22px;
+  }
+
+  .article-prose hr {
+    height: 9px;
+    background: linear-gradient(
+      90deg,
+      var(--ink) 0 24%,
+      transparent 24% 29%,
+      #a79b8f 29% 51%,
+      transparent 51% 79%,
+      color-mix(in srgb, var(--accent) 48%, var(--paper)) 79% 84%,
+      transparent 84% 100%
+    );
+  }
+
+  /* À PROPOS — intime, mais une frontière vient légèrement empiéter sur la colonne personnelle. */
+  .about-spectrum {
+    height: 10px;
+    background: linear-gradient(
+      90deg,
+      var(--ink) 0 30%,
+      transparent 30% 35%,
+      #a79b8f 35% 64%,
+      transparent 64% 100%
+    );
+  }
+
+  .about-personal-copy {
+    position: relative;
+  }
+
+  .about-personal-copy::before {
+    content: '';
+    position: absolute;
+    left: -36px;
+    top: 26%;
+    width: 1px;
+    height: 28%;
+    background: linear-gradient(
+      180deg,
+      var(--ink) 0 34%,
+      transparent 34% 43%,
+      #a79b8f 43% 75%,
+      transparent 75% 100%
+    );
+  }
+
+  .about-personal-copy .about-origin {
+    margin-left: clamp(-24px, -2.5vw, -38px);
+    background: color-mix(in srgb, var(--accent-soft) 26%, transparent);
+  }
+
+  .about-personal-copy .about-origin::before {
+    width: 8px;
+    background: linear-gradient(
+      180deg,
+      var(--ink) 0 30%,
+      transparent 30% 38%,
+      #a79b8f 38% 70%,
+      transparent 70% 100%
+    );
+  }
+
+  .about-closing {
+    color: var(--body);
+    transform: translateX(clamp(12px, 2vw, 26px));
+  }
+
+  /* Footer : la dernière frontière est volontairement désaxée. */
+  .site-footer::before {
+    left: max(24px, calc((100vw - min(1180px, calc(100vw - 48px))) / 2 + 74px));
+    width: min(330px, 38vw);
+    height: 8px;
+    background: linear-gradient(
+      90deg,
+      transparent 0 10%,
+      #a79b8f 10% 38%,
+      transparent 38% 44%,
+      var(--ink) 44% 72%,
+      transparent 72% 100%
+    );
+  }
+
+  @media (max-width: 1040px) {
+    .hero-v4::before {
+      right: 9%;
+      left: auto;
+      top: 156px;
+      bottom: 46%;
+      width: 16px;
+    }
+
+    .hero-v4::after {
+      left: auto;
+      right: calc(9% - 26px);
+      top: 286px;
+      width: 52px;
+    }
+
+    .hero-v4 .hero-copy {
+      margin-left: clamp(34px, 7vw, 100px);
+      transform: none;
+    }
+
+    .article-header h1 {
+      transform: none;
+    }
+  }
+
+  @media (max-width: 820px) {
+    .hero-v4::before {
+      right: 5%;
+      top: 136px;
+      bottom: 54%;
+      width: 12px;
+    }
+
+    .hero-v4::after {
+      right: calc(5% - 18px);
+      top: 246px;
+      width: 36px;
+    }
+
+    .hero-v4 .hero-copy {
+      margin-left: 18px;
+      padding-left: 26px;
+    }
+
+    .reading-section .article-card:nth-child(even) .article-card-content,
+    .reading-section .article-card:nth-child(odd) .article-card-content,
+    .reading-section .article-card:nth-child(even) .read-link,
+    .reading-section .article-card:nth-child(odd) .read-link,
+    .principle:nth-child(2),
+    .principle:nth-child(3),
+    .article-prose h2:nth-of-type(even),
+    .about-closing {
+      transform: none;
+    }
+
+    .principle:nth-child(2) {
+      padding-top: 34px;
+    }
+
+    .principle:nth-child(2)::after {
+      left: 0;
+      top: 10px;
+    }
+
+    .article-header-rule {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    .article-prose blockquote,
+    .article-prose blockquote:nth-of-type(even) {
+      width: 100%;
+      margin-left: 0;
+      background: linear-gradient(
+        180deg,
+        var(--ink) 0 7px,
+        transparent 7px 11px,
+        #b5a99d 11px 18px,
+        transparent 18px 22px,
+        var(--paper-light) 22px 100%
+      );
+    }
+
+    .article-prose blockquote p {
+      margin-left: 0;
+    }
+
+    .about-personal-copy::before {
+      display: none;
+    }
+  }
+}
