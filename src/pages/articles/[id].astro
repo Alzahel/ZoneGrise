@@ -18,7 +18,12 @@ interface Props {
 
 const { article } = Astro.props;
 const meta = getArticleMeta(article.id);
-const { Content } = await render(article);
+const { Content, headings } = await render(article);
+const sections = headings.filter((heading) => heading.depth === 2);
+const rawBody = 'body' in article && typeof article.body === 'string' ? article.body : '';
+const wordCount = rawBody.split(/\s+/).filter(Boolean).length;
+const readingTime = Math.max(1, Math.ceil(wordCount / 220));
+const number = String(meta.order).padStart(2, '0');
 
 const allArticles = (await getCollection('articles'))
   .filter((item) => articleMeta[item.id])
@@ -31,14 +36,38 @@ const next = index < allArticles.length - 1 ? allArticles[index + 1] : undefined
 <BaseLayout title={meta.title} description={meta.description}>
   <article class="article-shell shell">
     <header class="article-header">
-      <a class="back-link" href={withBase('articles')}>← Tous les articles</a>
-      <div class="article-kicker">Essai {String(meta.order).padStart(2, '0')} · {meta.tags.join(' · ')}</div>
+      <div class="article-topline">
+        <a class="back-link" href={withBase('articles')}>← Tous les articles</a>
+        <div class="article-meta-line">
+          <span>Essai {number}</span>
+          <span>{readingTime} min de lecture</span>
+        </div>
+      </div>
+      <div class="article-kicker">{meta.tags.join(' · ')}</div>
       <h1>{meta.title}</h1>
       <p class="article-deck">{meta.description}</p>
+      <div class="article-header-rule" aria-hidden="true">
+        <span>{number}</span>
+      </div>
     </header>
 
-    <div class="article-prose">
-      <Content />
+    <div class="article-layout">
+      {sections.length > 1 && (
+        <aside class="article-rail" aria-label="Sommaire de l’article">
+          <div class="article-rail-sticky">
+            <p class="rail-label">Dans cet essai</p>
+            <ol>
+              {sections.map((section) => (
+                <li><a href={`#${section.slug}`}>{section.text}</a></li>
+              ))}
+            </ol>
+          </div>
+        </aside>
+      )}
+
+      <div class="article-prose">
+        <Content />
+      </div>
     </div>
 
     <nav class="article-nav" aria-label="Articles précédent et suivant">

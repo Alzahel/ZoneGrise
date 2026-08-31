@@ -25,7 +25,7 @@ const currentPath = stripBase(Astro.url.pathname);
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#f3efe7" />
+    <meta name="theme-color" content="#f5f1e8" />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href={withBase('favicon.svg')} />
     <link rel="alternate" type="application/rss+xml" title="Zone Grise" href={withBase('rss.xml')} />
@@ -44,6 +44,7 @@ const currentPath = stripBase(Astro.url.pathname);
           <span class="wordmark-mark" aria-hidden="true"></span>
           <span>Zone Grise</span>
         </a>
+        <p class="header-note">Essais sur la création à l’ère de l’IA</p>
         <nav aria-label="Navigation principale">
           <a class:list={{ active: currentPath.startsWith('/articles') }} href={withBase('articles')}>Articles</a>
           <a class:list={{ active: currentPath === '/a-propos' }} href={withBase('a-propos')}>À propos</a>
@@ -58,8 +59,8 @@ const currentPath = stripBase(Astro.url.pathname);
     <footer class="site-footer">
       <div class="shell footer-grid">
         <div>
-          <div class="footer-name">Zone Grise</div>
-          <p>Regarder ce que l’IA change dans le fait de créer, sans chercher une réponse binaire.</p>
+          <p class="footer-label">Zone Grise</p>
+          <p class="footer-statement">Regarder ce que l’IA change dans le fait de créer, sans chercher une réponse binaire.</p>
         </div>
         <div class="footer-links">
           <a href={withBase('articles')}>Articles</a>
