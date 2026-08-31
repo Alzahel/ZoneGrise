@@ -1,0 +1,430 @@
+@layer base {
+  :root {
+    --paper: #fffdf7;
+    --paper-deep: #f4f0e7;
+    --paper-light: #ffffff;
+    --ink: #0b0b0a;
+    --body: #24221f;
+    --muted: #6f6d67;
+    --line: #d8d5cc;
+    --accent: #ff5a1f;
+    --accent-soft: #ffe0d3;
+    --zg-black: #0b0b0a;
+    --zg-gray: #a7a59e;
+    --zg-light: #fffdf7;
+  }
+
+  ::selection {
+    background: #ffb79d;
+    color: var(--ink);
+  }
+}
+
+@layer components {
+  /* V6 — même grammaire Zone Grise, humeur plus vive et plus contrastée. */
+
+  .site-header {
+    background: color-mix(in srgb, #fffdf7 94%, transparent);
+    border-bottom: 0;
+  }
+
+  .wordmark-mark {
+    position: relative;
+    width: 34px;
+    height: 10px;
+    background: linear-gradient(
+      90deg,
+      var(--ink) 0 31%,
+      #a7a59e 31% 61%,
+      #fffdf7 61% 100%
+    );
+    box-shadow: inset 0 0 0 1px var(--ink);
+  }
+
+  .wordmark-mark::before {
+    content: '';
+    position: absolute;
+    right: -4px;
+    top: -4px;
+    width: 10px;
+    height: 4px;
+    background: var(--accent);
+  }
+
+  .site-header nav a:hover,
+  .site-header nav a.active,
+  .footer-links a:hover,
+  .text-link,
+  .read-link {
+    color: var(--accent);
+  }
+
+  /* ACCUEIL — plus de nerf : blanc, noir, gris et un signal orange franc. */
+  .hero-v4 {
+    min-height: min(760px, 82vh);
+    padding-top: clamp(52px, 7vw, 92px);
+  }
+
+  .hero-v4::before {
+    left: 58.5%;
+    top: clamp(120px, 13vw, 170px);
+    bottom: 14px;
+    width: clamp(20px, 2.5vw, 34px);
+    opacity: 1;
+    background: linear-gradient(
+      180deg,
+      var(--ink) 0 32%,
+      #a7a59e 32% 63%,
+      transparent 63% 100%
+    );
+  }
+
+  .hero-v4::after {
+    left: calc(58.5% - 36px);
+    top: clamp(315px, 35vw, 438px);
+    width: clamp(104px, 11vw, 158px);
+    height: clamp(16px, 1.8vw, 24px);
+    background: var(--accent);
+  }
+
+  .hero-v4 .hero-grid {
+    grid-template-columns: minmax(0, 1.26fr) minmax(320px, 0.74fr);
+    gap: clamp(38px, 6vw, 86px);
+  }
+
+  .hero-v4 h1 {
+    color: var(--ink);
+    text-wrap: balance;
+  }
+
+  .hero-v4 h1 span + span {
+    color: #77756f;
+    margin-left: clamp(56px, 9vw, 150px);
+  }
+
+  .hero-v4 .hero-copy {
+    transform: translateY(clamp(18px, 3vw, 38px));
+    padding: clamp(28px, 3.6vw, 48px) clamp(24px, 3vw, 42px);
+    background: var(--ink);
+    color: #fffdf7;
+    box-shadow: none;
+  }
+
+  .hero-v4 .hero-lede,
+  .hero-v4 .hero-note {
+    color: #fffdf7;
+  }
+
+  .hero-v4 .hero-note {
+    opacity: 0.68;
+  }
+
+  .hero-v4 .hero-copy::before {
+    content: '';
+    position: absolute;
+    left: -16px;
+    top: 22px;
+    width: 16px;
+    height: 42%;
+    background: var(--accent);
+  }
+
+  .hero-v4 .hero-rule {
+    height: 14px;
+    margin-top: clamp(76px, 9vw, 112px);
+    background: linear-gradient(
+      90deg,
+      var(--ink) 0 31%,
+      #aaa8a1 31% 56%,
+      var(--accent) 56% 68%,
+      transparent 68% 100%
+    );
+  }
+
+  .cover-folio::after {
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      var(--ink) 0 30%,
+      #aaa8a1 30% 58%,
+      var(--accent) 58% 65%,
+      transparent 65% 100%
+    );
+  }
+
+  /* SECTIONS — plus de blanc et quelques ruptures oranges plutôt qu'un bain beige. */
+  .featured-section {
+    padding-top: 94px;
+  }
+
+  .featured-section .eyebrow,
+  .reading-section .eyebrow,
+  .manifesto-intro .eyebrow {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .featured-section .section-heading::after,
+  .reading-section .row-heading::after,
+  .manifesto-intro::after {
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      var(--ink) 0 28%,
+      #aaa8a1 28% 52%,
+      var(--accent) 52% 61%,
+      transparent 61% 100%
+    );
+  }
+
+  .article-card-number,
+  .article-card.featured .article-card-number {
+    background: linear-gradient(
+      90deg,
+      var(--ink) 0 34%,
+      #aaa8a1 34% 64%,
+      var(--accent) 64% 100%
+    );
+  }
+
+  .article-card-link::after {
+    background: linear-gradient(
+      90deg,
+      #d3d0c8 0 66%,
+      var(--accent) 66% 72%,
+      transparent 72% 100%
+    );
+  }
+
+  .reading-section .article-card:nth-child(even) .article-card-content {
+    transform: translateX(clamp(16px, 2.4vw, 34px));
+  }
+
+  .manifesto-band::before {
+    width: min(520px, 56vw);
+    height: 16px;
+    background: linear-gradient(
+      90deg,
+      var(--ink) 0 30%,
+      #aaa8a1 30% 56%,
+      var(--accent) 56% 73%,
+      transparent 73% 100%
+    );
+  }
+
+  .principle:nth-child(2) {
+    background: var(--accent);
+    color: var(--ink);
+    transform: translateY(20px);
+  }
+
+  .principle:nth-child(2) > span,
+  .principle:nth-child(2) h3,
+  .principle:nth-child(2) p {
+    color: var(--ink);
+  }
+
+  .principle:nth-child(2) {
+    padding-inline: 34px;
+  }
+
+  .principle:nth-child(3) {
+    transform: translateY(-12px);
+  }
+
+  /* ARTICLE — la couleur arrive comme signal, pas comme atmosphère générale. */
+  .article-header-rule {
+    height: 15px;
+    background: linear-gradient(
+      90deg,
+      var(--ink) 0 31%,
+      #aaa8a1 31% 59%,
+      var(--accent) 59% 74%,
+      transparent 74% 100%
+    );
+  }
+
+  .article-kicker::before {
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      var(--ink) 0 42%,
+      var(--accent) 42% 62%,
+      transparent 62% 100%
+    );
+  }
+
+  .article-prose h2::before {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .article-rail .rail-label {
+    background: linear-gradient(
+      90deg,
+      var(--ink) 0 34%,
+      #aaa8a1 34% 64%,
+      var(--accent) 64% 100%
+    );
+  }
+
+  .article-rail a:hover {
+    color: var(--accent);
+  }
+
+  .article-prose blockquote {
+    background: linear-gradient(
+      90deg,
+      var(--ink) 0 16%,
+      var(--accent) 16% 23%,
+      #f0eee8 23% 100%
+    );
+    color: var(--ink);
+  }
+
+  .article-prose hr {
+    height: 13px;
+    background: linear-gradient(
+      90deg,
+      var(--ink) 0 28%,
+      #aaa8a1 28% 52%,
+      var(--accent) 52% 67%,
+      transparent 67% 100%
+    );
+  }
+
+  .article-nav a:hover strong {
+    color: var(--accent);
+  }
+
+  /* À PROPOS — garder l'intime, ajouter une impulsion visuelle. */
+  .about-spectrum {
+    height: 14px;
+    background: linear-gradient(
+      90deg,
+      var(--ink) 0 31%,
+      #aaa8a1 31% 59%,
+      var(--accent) 59% 100%
+    );
+  }
+
+  .about-personal-intro .cover-folio::after {
+    background: linear-gradient(
+      90deg,
+      var(--ink) 0 31%,
+      #aaa8a1 31% 55%,
+      var(--accent) 55% 64%,
+      transparent 64% 100%
+    );
+  }
+
+  .about-personal-copy .about-origin {
+    background: #fff3ed;
+  }
+
+  .about-personal-copy .about-origin::before {
+    width: 14px;
+    background: linear-gradient(
+      180deg,
+      var(--ink) 0 30%,
+      #aaa8a1 30% 55%,
+      var(--accent) 55% 100%
+    );
+  }
+
+  .about-closing {
+    color: var(--accent);
+  }
+
+  .site-footer::before {
+    height: 12px;
+    width: min(430px, 48vw);
+    background: linear-gradient(
+      90deg,
+      transparent 0 18%,
+      var(--accent) 18% 32%,
+      #aaa8a1 32% 60%,
+      var(--ink) 60% 100%
+    );
+  }
+
+  @media (max-width: 1040px) {
+    .hero-v4 {
+      min-height: auto;
+    }
+
+    .hero-v4::before {
+      right: 8%;
+      left: auto;
+      top: 150px;
+      bottom: 44%;
+    }
+
+    .hero-v4::after {
+      left: auto;
+      right: calc(8% - 28px);
+      top: 300px;
+      width: 96px;
+    }
+
+    .hero-v4 .hero-copy {
+      transform: none;
+    }
+  }
+
+  @media (max-width: 820px) {
+    .hero-v4::before {
+      right: 5%;
+      width: 16px;
+      top: 128px;
+      bottom: 56%;
+    }
+
+    .hero-v4::after {
+      right: 2%;
+      top: 250px;
+      width: 72px;
+      height: 13px;
+    }
+
+    .hero-v4 .hero-copy {
+      margin-left: 0;
+      padding: 26px 24px;
+    }
+
+    .hero-v4 .hero-copy::before {
+      left: 0;
+      top: -10px;
+      width: 64px;
+      height: 10px;
+    }
+
+    .principle:nth-child(2),
+    .principle:nth-child(3) {
+      transform: none;
+    }
+
+    .principle:nth-child(2) {
+      padding: 30px 24px;
+    }
+
+    .article-prose blockquote {
+      background: linear-gradient(
+        180deg,
+        var(--ink) 0 8px,
+        var(--accent) 8px 17px,
+        #f0eee8 17px 100%
+      );
+    }
+  }
+
+  @media (max-width: 480px) {
+    .wordmark-mark {
+      width: 30px;
+    }
+
+    .hero-v4 h1 span + span {
+      margin-left: 22px;
+    }
+  }
+}
