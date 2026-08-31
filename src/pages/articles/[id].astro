@@ -33,7 +33,7 @@ const previous = index > 0 ? allArticles[index - 1] : undefined;
 const next = index < allArticles.length - 1 ? allArticles[index + 1] : undefined;
 ---
 
-<BaseLayout title={meta.title} description={meta.description}>
+<BaseLayout title={meta.title} description={meta.description} image={meta.image}>
   <article class="article-shell shell">
     <header class="article-header">
       <div class="article-topline">
@@ -53,7 +53,15 @@ const next = index < allArticles.length - 1 ? allArticles[index + 1] : undefined
 
     {meta.image && (
       <figure class="article-hero-media">
-        <img src={withBase(meta.image)} alt={meta.imageAlt ?? ''} decoding="async" />
+        <img
+          src={withBase(meta.image)}
+          alt={meta.imageAlt ?? ''}
+          width="1448"
+          height="1086"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
       </figure>
     )}
 
