@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { stripBase, withBase } from '../lib/paths';
 
 interface Props {
   title?: string;
@@ -13,6 +14,7 @@ const {
 
 const pageTitle = title === 'Zone Grise' ? title : `${title} — Zone Grise`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const currentPath = stripBase(Astro.url.pathname);
 ---
 
 <!doctype html>
@@ -25,9 +27,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="description" content={description} />
     <meta name="theme-color" content="#f3efe7" />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate" type="application/rss+xml" title="Zone Grise" href="/rss.xml" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" type="image/svg+xml" href={withBase('favicon.svg')} />
+    <link rel="alternate" type="application/rss+xml" title="Zone Grise" href={withBase('rss.xml')} />
+    <link rel="sitemap" href={withBase('sitemap-index.xml')} />
     <meta property="og:site_name" content="Zone Grise" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
@@ -38,13 +40,13 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   <body>
     <header class="site-header">
       <div class="shell nav-shell">
-        <a class="wordmark" href="/" aria-label="Zone Grise — accueil">
+        <a class="wordmark" href={withBase()} aria-label="Zone Grise — accueil">
           <span class="wordmark-mark" aria-hidden="true"></span>
           <span>Zone Grise</span>
         </a>
         <nav aria-label="Navigation principale">
-          <a class:list={{ active: Astro.url.pathname.startsWith('/articles') }} href="/articles">Articles</a>
-          <a class:list={{ active: Astro.url.pathname === '/a-propos' }} href="/a-propos">À propos</a>
+          <a class:list={{ active: currentPath.startsWith('/articles') }} href={withBase('articles')}>Articles</a>
+          <a class:list={{ active: currentPath === '/a-propos' }} href={withBase('a-propos')}>À propos</a>
         </nav>
       </div>
     </header>
@@ -60,9 +62,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
           <p>Regarder ce que l’IA change dans le fait de créer, sans chercher une réponse binaire.</p>
         </div>
         <div class="footer-links">
-          <a href="/articles">Articles</a>
-          <a href="/a-propos">À propos</a>
-          <a href="/rss.xml">RSS</a>
+          <a href={withBase('articles')}>Articles</a>
+          <a href={withBase('a-propos')}>À propos</a>
+          <a href={withBase('rss.xml')}>RSS</a>
         </div>
       </div>
     </footer>

@@ -2,6 +2,7 @@
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { articleMeta, getArticleMeta } from '../../data/articles';
+import { withBase } from '../../lib/paths';
 
 export async function getStaticPaths() {
   const articles = (await getCollection('articles')).filter((article) => articleMeta[article.id]);
@@ -30,7 +31,7 @@ const next = index < allArticles.length - 1 ? allArticles[index + 1] : undefined
 <BaseLayout title={meta.title} description={meta.description}>
   <article class="article-shell shell">
     <header class="article-header">
-      <a class="back-link" href="/articles">← Tous les articles</a>
+      <a class="back-link" href={withBase('articles')}>← Tous les articles</a>
       <div class="article-kicker">Essai {String(meta.order).padStart(2, '0')} · {meta.tags.join(' · ')}</div>
       <h1>{meta.title}</h1>
       <p class="article-deck">{meta.description}</p>
@@ -42,13 +43,13 @@ const next = index < allArticles.length - 1 ? allArticles[index + 1] : undefined
 
     <nav class="article-nav" aria-label="Articles précédent et suivant">
       {previous ? (
-        <a href={`/articles/${previous.id}`}>
+        <a href={withBase(`articles/${previous.id}`)}>
           <span>Précédent</span>
           <strong>{getArticleMeta(previous.id).title}</strong>
         </a>
       ) : <span></span>}
       {next ? (
-        <a class="next" href={`/articles/${next.id}`}>
+        <a class="next" href={withBase(`articles/${next.id}`)}>
           <span>Suivant</span>
           <strong>{getArticleMeta(next.id).title}</strong>
         </a>

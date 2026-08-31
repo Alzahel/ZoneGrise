@@ -1,5 +1,6 @@
 ---
 import type { ArticleMeta } from '../data/articles';
+import { withBase } from '../lib/paths';
 
 interface Props {
   id: string;
@@ -12,7 +13,7 @@ const number = String(meta.order).padStart(2, '0');
 ---
 
 <article class:list={['article-card', { featured }]}> 
-  <a href={`/articles/${id}`} class="article-card-link">
+  <a href={withBase(`articles/${id}`)} class="article-card-link">
     <div class="article-card-meta">
       <span>Essai {number}</span>
       <span class="dot" aria-hidden="true"></span>
