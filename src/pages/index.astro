@@ -16,10 +16,14 @@ const latest = [...articles]
 ---
 
 <BaseLayout>
-  <section class="hero shell">
-    <p class="eyebrow">IA · création · auteur · légitimité</p>
+  <section class="hero hero-v4 shell">
+    <div class="cover-folio">
+      <span>Revue d’essais</span>
+      <span>IA · création · auteur · légitimité</span>
+    </div>
+
     <div class="hero-grid">
-      <h1>Zone Grise</h1>
+      <h1><span>Zone</span><span>Grise</span></h1>
       <div class="hero-copy">
         <p class="hero-lede">
           Ni manifeste pro-IA, ni procès à charge. Un endroit pour regarder ce qui change quand les outils deviennent capables de produire avec nous — ou à notre place.
@@ -27,7 +31,7 @@ const latest = [...articles]
         <p class="hero-note">Des essais courts. Une question à la fois. Les réponses simples peuvent rester dehors.</p>
       </div>
     </div>
-    <div class="hero-rule" aria-hidden="true"><span>ZG / 01</span></div>
+    <div class="hero-rule" aria-hidden="true"><span>ZG / essais</span></div>
   </section>
 
   {first && (
