@@ -51,6 +51,12 @@ const next = index < allArticles.length - 1 ? allArticles[index + 1] : undefined
       </div>
     </header>
 
+    {meta.image && (
+      <figure class="article-hero-media">
+        <img src={withBase(meta.image)} alt={meta.imageAlt ?? ''} decoding="async" />
+      </figure>
+    )}
+
     <div class="article-layout">
       {sections.length > 1 && (
         <aside class="article-rail" aria-label="Repères de l’article">
