@@ -53,15 +53,18 @@ const next = index < allArticles.length - 1 ? allArticles[index + 1] : undefined
 
     <div class="article-layout">
       {sections.length > 1 && (
-        <aside class="article-rail" aria-label="Sommaire de l’article">
+        <aside class="article-rail" aria-label="Repères de l’article">
           <div class="article-rail-sticky">
-            <p class="rail-label">Dans cet essai</p>
+            <p class="rail-label" aria-hidden="true">§</p>
             <ol>
               {sections.map((section, sectionIndex) => (
                 <li>
-                  <a href={`#${section.slug}`}>
+                  <a
+                    href={`#${section.slug}`}
+                    aria-label={section.text}
+                    title={section.text}
+                  >
                     <span class="rail-index" aria-hidden="true">{String(sectionIndex + 1).padStart(2, '0')}</span>
-                    <span class="rail-text">{section.text}</span>
                   </a>
                 </li>
               ))}
