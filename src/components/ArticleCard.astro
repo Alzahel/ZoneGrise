@@ -15,6 +15,16 @@ const number = String(meta.order).padStart(2, '0');
 <article class:list={['article-card', { featured }]}> 
   <a href={withBase(`articles/${id}`)} class="article-card-link">
     <span class="article-card-number" aria-hidden="true">{number}</span>
+    {meta.image && (
+      <figure class="article-card-media">
+        <img
+          src={withBase(meta.image)}
+          alt={meta.imageAlt ?? ''}
+          loading={featured ? 'eager' : 'lazy'}
+          decoding="async"
+        />
+      </figure>
+    )}
     <div class="article-card-content">
       <div class="article-card-meta">
         <span>Essai {number}</span>
