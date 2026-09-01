@@ -2,6 +2,7 @@ node_modules/
 dist/
 .astro/
 public/images/generated/
+public/images/article-03-interchangeable.webp
 .env
 .env.*
 .DS_Store
