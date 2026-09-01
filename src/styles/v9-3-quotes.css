@@ -1,0 +1,113 @@
+/* V9.3 — citations fortes : la phrase porte le poids, le système graphique reste un repère. */
+
+.article-prose blockquote {
+  position: relative !important;
+  width: calc(100% + 72px) !important;
+  margin: clamp(4.6rem, 8vw, 7.2rem) 0 clamp(4.8rem, 8vw, 7.4rem) -36px !important;
+  padding: 34px 12px 30px 42px !important;
+  border: 0 !important;
+  border-left: 1px solid var(--accent) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--ink) !important;
+}
+
+.article-prose blockquote::before {
+  content: '' !important;
+  display: block !important;
+  position: absolute !important;
+  left: 42px !important;
+  top: 0 !important;
+  width: 68px !important;
+  height: 5px !important;
+  background: linear-gradient(
+    90deg,
+    var(--ink) 0 30%,
+    transparent 30% 36%,
+    var(--zg-gray) 36% 67%,
+    transparent 67% 73%,
+    var(--accent) 73% 100%
+  ) !important;
+  opacity: 0.9;
+}
+
+.article-prose blockquote::after {
+  content: none !important;
+  display: none !important;
+}
+
+.article-prose blockquote p {
+  margin: 0 !important;
+  max-width: 760px;
+  font-family: var(--display);
+  font-size: clamp(1.72rem, 3vw, 2.45rem) !important;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.16 !important;
+  letter-spacing: -0.025em;
+  color: inherit !important;
+}
+
+.article-prose blockquote p + p {
+  margin-top: 1.15em !important;
+}
+
+.article-prose blockquote strong,
+.article-prose blockquote em {
+  color: inherit !important;
+}
+
+html[data-theme='dark'] .article-prose blockquote {
+  background: transparent !important;
+  color: var(--ink) !important;
+  border-left-color: var(--accent) !important;
+  box-shadow: none !important;
+}
+
+html[data-theme='dark'] .article-prose blockquote p {
+  color: var(--ink) !important;
+}
+
+@media (max-width: 820px) {
+  .article-prose blockquote,
+  .article-prose blockquote:nth-of-type(even) {
+    width: 100% !important;
+    margin: 4rem 0 4.4rem !important;
+    padding: 29px 0 25px 20px !important;
+    border-left: 1px solid var(--accent) !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .article-prose blockquote::before {
+    left: 20px !important;
+    top: 0 !important;
+    width: 58px !important;
+    height: 4px !important;
+  }
+
+  .article-prose blockquote p {
+    margin: 0 !important;
+    max-width: none;
+    font-size: clamp(1.48rem, 7.1vw, 1.95rem) !important;
+    line-height: 1.22 !important;
+    letter-spacing: -0.02em;
+  }
+}
+
+@media (max-width: 480px) {
+  .article-prose blockquote,
+  .article-prose blockquote:nth-of-type(even) {
+    margin-block: 3.5rem 3.9rem !important;
+    padding-left: 17px !important;
+  }
+
+  .article-prose blockquote::before {
+    left: 17px !important;
+    width: 52px !important;
+  }
+
+  .article-prose blockquote p {
+    font-size: clamp(1.42rem, 7vw, 1.78rem) !important;
+  }
+}
