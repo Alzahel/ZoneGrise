@@ -26,6 +26,15 @@ export const articleMeta: Record<string, ArticleMeta> = {
     image: 'images/article-02-choisir.png',
     imageAlt: 'Une main écrit dans un carnet au milieu de notes et de fragments éditoriaux.',
   },
+  '03-lhumain-est-il-interchangeable': {
+    title: 'L’humain est-il interchangeable ?',
+    description:
+      'Si l’on remplace la personne derrière l’outil, qu’est-ce qui change réellement dans les décisions, la trajectoire et la forme du projet ?',
+    order: 3,
+    tags: ['agence', 'substituabilité', 'auteur'],
+    image: 'images/article-03-interchangeable.svg',
+    imageAlt: 'Deux silhouettes humaines presque superposées, séparées par une frontière grise et terracotta.',
+  },
 };
 
 export function getArticleMeta(id: string): ArticleMeta {
