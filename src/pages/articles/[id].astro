@@ -56,11 +56,13 @@ const next = index < allArticles.length - 1 ? allArticles[index + 1] : undefined
     {meta.image && responsiveImage && (
       <figure class="article-hero-media">
         <picture>
-          <source
-            type="image/webp"
-            srcset={responsiveImage.srcset}
-            sizes="(max-width: 820px) calc(100vw - 30px), (min-width: 1091px) 960px, 88vw"
-          />
+          {responsiveImage.srcset && (
+            <source
+              type="image/webp"
+              srcset={responsiveImage.srcset}
+              sizes="(max-width: 820px) calc(100vw - 30px), (min-width: 1091px) 960px, 88vw"
+            />
+          )}
           <img
             src={responsiveImage.fallback}
             alt={meta.imageAlt ?? ''}
