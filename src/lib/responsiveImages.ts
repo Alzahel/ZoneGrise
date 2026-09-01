@@ -7,11 +7,14 @@ export function getResponsiveImage(src?: string) {
 
   const filename = src.replace(/^\/+/, '').replace(/^images\//, '');
   const stem = filename.replace(/\.[^.]+$/, '');
+  const isRasterMaster = /\.png$/i.test(filename);
 
   return {
     fallback: withBase(src),
-    srcset: RESPONSIVE_IMAGE_WIDTHS
-      .map((width) => `${withBase(`images/generated/${stem}-${width}.webp`)} ${width}w`)
-      .join(', '),
+    srcset: isRasterMaster
+      ? RESPONSIVE_IMAGE_WIDTHS
+          .map((width) => `${withBase(`images/generated/${stem}-${width}.webp`)} ${width}w`)
+          .join(', ')
+      : null,
   };
 }
