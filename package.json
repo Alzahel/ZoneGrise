@@ -4,13 +4,15 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
+    "dev": "node scripts/generate-responsive-images.mjs && astro dev",
+    "images": "node scripts/generate-responsive-images.mjs",
+    "build": "node scripts/generate-responsive-images.mjs && astro build",
     "preview": "astro preview"
   },
   "dependencies": {
     "@astrojs/rss": "4.0.19",
     "@astrojs/sitemap": "3.7.3",
-    "astro": "7.2.9"
+    "astro": "7.2.9",
+    "sharp": "^0.34.3"
   }
 }
