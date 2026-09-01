@@ -21,5 +21,15 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Diagnose GoatCounter public counter
+        run: |
+          url='https://alzahel.goatcounter.com/counter/%2FZoneGrise%2Farticles%2F03-lhumain-est-il-interchangeable.json'
+          status=$(curl -sS -L -w '%{http_code}' -o /tmp/goatcounter.json "$url" || true)
+          echo "GOATCOUNTER_STATUS=$status"
+          echo 'GOATCOUNTER_BODY_BEGIN'
+          cat /tmp/goatcounter.json || true
+          echo
+          echo 'GOATCOUNTER_BODY_END'
+
       - name: Build Astro site
         run: npm run build
