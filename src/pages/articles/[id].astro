@@ -47,8 +47,7 @@ const next = index < allArticles.length - 1 ? allArticles[index + 1] : undefined
             class="article-view-count"
             data-article-view-count
             aria-live="polite"
-            hidden
-          ></span>
+          >— vues</span>
         </div>
       </div>
       <div class="article-kicker">{meta.tags.join(' · ')}</div>
@@ -125,34 +124,57 @@ const next = index < allArticles.length - 1 ? allArticles[index + 1] : undefined
     </nav>
   </article>
 
+  <div id="gc-view-probe" hidden aria-hidden="true"></div>
+
   <script is:inline>
     (() => {
       const target = document.querySelector('[data-article-view-count]');
-      if (!(target instanceof HTMLElement)) return;
+      const probe = document.querySelector('#gc-view-probe');
+      if (!(target instanceof HTMLElement) || !(probe instanceof HTMLElement)) return;
 
-      const loadCount = async () => {
-        const path = window.location.pathname || '/';
+      let loadAttempts = 0;
 
-        try {
-          const response = await fetch(
-            `https://alzahel.goatcounter.com/counter/${encodeURIComponent(path)}.json`,
-            { cache: 'no-store' },
-          );
+      const waitForRenderedCount = () => {
+        let readAttempts = 0;
 
-          if (!response.ok) return;
+        const read = () => {
+          const countNode = probe.querySelector('#gcvc-views');
+          const raw = countNode?.textContent?.trim();
 
-          const data = await response.json();
-          if (data?.count === undefined || data?.count === null) return;
+          if (raw) {
+            target.textContent = `${raw} ${raw === '1' ? 'vue' : 'vues'}`;
+            return;
+          }
 
-          const count = String(data.count);
-          target.textContent = `${count} ${count === '1' ? 'vue' : 'vues'}`;
-          target.hidden = false;
-        } catch {
-          // Le suivi peut être bloqué sans empêcher la lecture de l'article.
-        }
+          readAttempts += 1;
+          if (readAttempts < 60) setTimeout(read, 100);
+        };
+
+        read();
       };
 
-      loadCount();
+      const load = () => {
+        loadAttempts += 1;
+
+        if (window.goatcounter?.visit_count) {
+          try {
+            window.goatcounter.visit_count({
+              append: '#gc-view-probe',
+              type: 'html',
+              path: window.location.pathname || '/',
+              no_branding: true,
+            });
+            waitForRenderedCount();
+          } catch {
+            // Le placeholder reste visible si GoatCounter est indisponible.
+          }
+          return;
+        }
+
+        if (loadAttempts < 100) setTimeout(load, 100);
+      };
+
+      load();
     })();
   </script>
 </BaseLayout>
