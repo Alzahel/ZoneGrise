@@ -1,12 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { withBase } from '../lib/paths';
+import { getResponsiveImage } from '../lib/responsiveImages';
+
+const aboutImage = 'images/about-atelier.png';
+const responsiveImage = getResponsiveImage(aboutImage);
 ---
 
 <BaseLayout
   title="À propos"
   description="Pourquoi Zone Grise existe et d’où vient le projet."
-  image="images/about-atelier.png"
+  image={aboutImage}
 >
   <section class="about-personal-intro shell">
     <div class="cover-folio">
@@ -16,17 +19,26 @@ import { withBase } from '../lib/paths';
     <h1>Pourquoi<br /><span>Zone Grise ?</span></h1>
   </section>
 
-  <figure class="about-visual shell">
-    <img
-      src={withBase('images/about-atelier.png')}
-      alt="Bureau créatif couvert de carnets, de feuilles et de notes, dont la phrase « Trop d’idées. Pas assez de temps. »"
-      width="1448"
-      height="1086"
-      loading="eager"
-      fetchpriority="high"
-      decoding="async"
-    />
-  </figure>
+  {responsiveImage && (
+    <figure class="about-visual shell">
+      <picture>
+        <source
+          type="image/webp"
+          srcset={responsiveImage.srcset}
+          sizes="(max-width: 820px) calc(100vw - 30px), (min-width: 1091px) 960px, 90vw"
+        />
+        <img
+          src={responsiveImage.fallback}
+          alt="Bureau créatif couvert de carnets, de feuilles et de notes, dont la phrase « Trop d’idées. Pas assez de temps. »"
+          width="1448"
+          height="1086"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
+    </figure>
+  )}
 
   <section class="about-personal shell">
     <aside class="about-personal-aside" aria-hidden="true">
