@@ -150,14 +150,45 @@ const currentPath = stripBase(Astro.url.pathname);
     </script>
 
     <script is:inline>
-      // Utiliser exactement le même chemin que celui qui sera demandé au compteur public.
-      window.goatcounter = window.goatcounter || {};
-      window.goatcounter.path = () => window.location.pathname || '/';
+      (() => {
+        const endpoint = 'https://alzahel.goatcounter.com/count';
+
+        try {
+          if (localStorage.getItem('skipgc') === 't') return;
+        } catch {}
+
+        const send = () => {
+          const params = new URLSearchParams();
+          params.set('p', window.location.pathname || '/');
+          params.set('t', document.title);
+          if (document.referrer) params.set('r', document.referrer);
+          if (window.screen?.width) params.set('s', String(window.screen.width));
+          if (window.location.search) params.set('q', window.location.search);
+          if (navigator.webdriver) params.set('b', '153');
+          params.set('rnd', Math.random().toString(36).slice(2, 8));
+
+          const url = `${endpoint}?${params.toString()}`;
+
+          if (navigator.sendBeacon?.(url)) return;
+
+          const image = new Image(1, 1);
+          image.alt = '';
+          image.setAttribute('aria-hidden', 'true');
+          image.src = url;
+        };
+
+        if (!('visibilityState' in document) || document.visibilityState === 'visible') {
+          send();
+          return;
+        }
+
+        const onVisible = () => {
+          if (document.visibilityState !== 'visible') return;
+          document.removeEventListener('visibilitychange', onVisible);
+          send();
+        };
+        document.addEventListener('visibilitychange', onVisible);
+      })();
     </script>
-    <script
-      data-goatcounter="https://alzahel.goatcounter.com/count"
-      async
-      src="https://gc.zgo.at/count.js"
-    ></script>
   </body>
 </html>
