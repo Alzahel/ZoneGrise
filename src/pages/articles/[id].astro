@@ -124,54 +124,60 @@ const next = index < allArticles.length - 1 ? allArticles[index + 1] : undefined
     </nav>
   </article>
 
-  <div id="gc-view-probe" hidden aria-hidden="true"></div>
-
   <script is:inline>
     (() => {
       const target = document.querySelector('[data-article-view-count]');
-      const probe = document.querySelector('#gc-view-probe');
-      if (!(target instanceof HTMLElement) || !(probe instanceof HTMLElement)) return;
+      if (!(target instanceof HTMLElement)) return;
 
-      let loadAttempts = 0;
+      let scriptAttempts = 0;
+      let requestAttempts = 0;
 
-      const waitForRenderedCount = () => {
-        let readAttempts = 0;
+      const renderCount = (raw) => {
+        const count = String(raw).trim();
+        if (!count) return;
+        target.textContent = `${count} ${count === '1' ? 'vue' : 'vues'}`;
+      };
 
-        const read = () => {
-          const countNode = probe.querySelector('#gcvc-views');
-          const raw = countNode?.textContent?.trim();
+      const requestCount = async (path) => {
+        requestAttempts += 1;
 
-          if (raw) {
-            target.textContent = `${raw} ${raw === '1' ? 'vue' : 'vues'}`;
-            return;
+        try {
+          const response = await fetch(
+            `https://alzahel.goatcounter.com/counter/${encodeURIComponent(path)}.json`,
+            { cache: 'no-store' },
+          );
+
+          if (response.ok) {
+            const data = await response.json();
+            if (data?.count !== undefined && data?.count !== null) {
+              renderCount(data.count);
+              return;
+            }
           }
+        } catch {
+          // Le compteur reste un enrichissement non bloquant.
+        }
 
-          readAttempts += 1;
-          if (readAttempts < 60) setTimeout(read, 100);
-        };
-
-        read();
+        // Une toute première visite peut créer le chemin quelques secondes après
+        // le chargement de la page. On retente sans bloquer l'article.
+        if (requestAttempts < 4) {
+          setTimeout(() => requestCount(path), requestAttempts * 2000);
+        }
       };
 
       const load = () => {
-        loadAttempts += 1;
+        scriptAttempts += 1;
 
-        if (window.goatcounter?.visit_count) {
-          try {
-            window.goatcounter.visit_count({
-              append: '#gc-view-probe',
-              type: 'html',
-              path: window.location.pathname || '/',
-              no_branding: true,
-            });
-            waitForRenderedCount();
-          } catch {
-            // Le placeholder reste visible si GoatCounter est indisponible.
-          }
+        if (window.goatcounter?.get_data) {
+          const data = window.goatcounter.get_data();
+          const path = data?.p || window.location.pathname || '/';
+          requestCount(path);
           return;
         }
 
-        if (loadAttempts < 100) setTimeout(load, 100);
+        if (scriptAttempts < 100) {
+          setTimeout(load, 100);
+        }
       };
 
       load();
