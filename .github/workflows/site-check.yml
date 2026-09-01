@@ -23,13 +23,17 @@ jobs:
 
       - name: Diagnose GoatCounter public counter
         run: |
-          url='https://alzahel.goatcounter.com/counter/%2FZoneGrise%2Farticles%2F03-lhumain-est-il-interchangeable.json'
-          status=$(curl -sS -L -w '%{http_code}' -o /tmp/goatcounter.json "$url" || true)
-          echo "GOATCOUNTER_STATUS=$status"
-          echo 'GOATCOUNTER_BODY_BEGIN'
-          cat /tmp/goatcounter.json || true
-          echo
-          echo 'GOATCOUNTER_BODY_END'
+          check() {
+            label="$1"
+            url="$2"
+            status=$(curl -sS -L -w '%{http_code}' -o /tmp/goatcounter.json "$url" || true)
+            body=$(cat /tmp/goatcounter.json 2>/dev/null || true)
+            echo "$label | $status | $body"
+          }
+          check 'with-base' 'https://alzahel.goatcounter.com/counter/%2FZoneGrise%2Farticles%2F03-lhumain-est-il-interchangeable.json'
+          check 'without-base' 'https://alzahel.goatcounter.com/counter/%2Farticles%2F03-lhumain-est-il-interchangeable.json'
+          check 'with-trailing-slash' 'https://alzahel.goatcounter.com/counter/%2FZoneGrise%2Farticles%2F03-lhumain-est-il-interchangeable%2F.json'
+          check 'total' 'https://alzahel.goatcounter.com/counter/TOTAL.json'
 
       - name: Build Astro site
         run: npm run build
