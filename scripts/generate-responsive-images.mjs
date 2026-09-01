@@ -9,9 +9,12 @@ const outputDir = path.join(sourceDir, 'generated');
 const assetDir = path.join(root, 'assets');
 
 const article03Parts = [
-  'article-03-interchangeable-q40.part01.b64',
-  'article-03-interchangeable-q40.part02.b64',
-  'article-03-interchangeable-q40.part03.b64',
+  'article-03-selected.part01.b64',
+  'article-03-selected.part02.b64',
+  'article-03-selected.part03.b64',
+  'article-03-selected.part04.b64',
+  'article-03-selected.part05.b64',
+  'article-03-selected.part06.b64',
 ];
 
 const article03Base64 = (
