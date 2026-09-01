@@ -32,8 +32,8 @@ Ces articles construisent les concepts qui serviront ensuite dans tout le blog.
 |---|---|---|---|
 | ✅ | **Le problème n’est pas l’IA, c’est ce qu’on lui demande de remplacer** | essai court | Article fondateur : substitution vs amplification de l’humain. |
 | ✅ | **Quand tout devient possible, choisir devient l’art** | essai court | Abondance, goût, refus, sélection. Axe : « À mesure que produire devient facile, choisir devient plus important. » La composition y apparaît comme prolongement, sans devenir la thèse principale. |
-| ⏭ | **L’humain est-il interchangeable ?** | essai court | Développer le test de substituabilité comme grille de l’agence créative. |
-| ⭐ | **L’art est-il dans les composants ou dans le tout ?** | essai court | Composition, assemblage, assets, collage, sampling, montage. |
+| ✅ | **L’humain est-il interchangeable ?** | essai court | Développer le test de substituabilité comme grille de l’agence créative. |
+| ⏭ | **L’art est-il dans les composants ou dans le tout ?** | essai court | Composition, assemblage, assets, collage, sampling, montage. |
 | ⭐ | **Tout faire soi-même n’est pas une définition de la créativité** | essai court | Distinguer exécution, conception, direction et orchestration. |
 | ↪ | **Choisir, est-ce créer ?** | — | Absorbé par *Quand tout devient possible, choisir devient l’art*. |
 | ↪ | **Si j’utilise une IA, est-ce encore mon travail ?** | — | Idée répartie entre l’article 01 et *L’humain est-il interchangeable ?*. |
@@ -175,12 +175,12 @@ L’ordre reste volontairement distinct de la taxonomie.
 
 1. ✅ **Le problème n’est pas l’IA, c’est ce qu’on lui demande de remplacer**
 2. ✅ **Quand tout devient possible, choisir devient l’art**
-3. ⏭ **L’humain est-il interchangeable ?**
-4. **L’art est-il dans les composants ou dans le tout ?**
+3. ✅ **L’humain est-il interchangeable ?**
+4. ⏭ **L’art est-il dans les composants ou dans le tout ?**
 5. **Tout faire soi-même n’est pas une définition de la créativité**
 6. **Où est l’auteur ? — Littérature : l’auteur doit-il avoir écrit chaque mot ?**
 
-L’article 02 fait apparaître l’idée de composition comme prolongement naturel du goût et de la cohérence, sans chercher à la démontrer entièrement. L’article 04 pourra ensuite reprendre cette porte ouverte et traiter directement la question du tout et de ses composants.
+L’article 02 fait apparaître l’idée de composition comme prolongement naturel du goût et de la cohérence, sans chercher à la démontrer entièrement. L’article 04 reprend désormais cette porte ouverte et traite directement la question du tout et de ses composants.
 
 Ensuite, alterner plutôt que publier toutes les Fondations d’un bloc : un article de série, une objection, un cas concret ou un sujet sur les indépendants peut éviter que le blog devienne trop abstrait.
 
