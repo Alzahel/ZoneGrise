@@ -149,6 +149,11 @@ const currentPath = stripBase(Astro.url.pathname);
       })();
     </script>
 
+    <script is:inline>
+      // Utiliser exactement le même chemin que celui qui sera demandé au compteur public.
+      window.goatcounter = window.goatcounter || {};
+      window.goatcounter.path = () => window.location.pathname || '/';
+    </script>
     <script
       data-goatcounter="https://alzahel.goatcounter.com/count"
       async
