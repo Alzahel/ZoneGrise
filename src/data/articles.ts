@@ -32,8 +32,8 @@ export const articleMeta: Record<string, ArticleMeta> = {
       'Si l’on remplace la personne derrière l’outil, qu’est-ce qui change réellement dans les décisions, la trajectoire et la forme du projet ?',
     order: 3,
     tags: ['agence', 'substituabilité', 'auteur'],
-    image: 'images/article-03-interchangeable.svg',
-    imageAlt: 'Deux silhouettes humaines presque superposées, séparées par une frontière grise et terracotta.',
+    image: 'images/article-03-interchangeable.webp',
+    imageAlt: 'Portrait éditorial fragmenté et superposé, traversé par des formes de papier et un demi-cercle orange.',
   },
 };
 
