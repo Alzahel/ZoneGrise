@@ -23,11 +23,13 @@ const imageSizes = featured
     {meta.image && responsiveImage && (
       <figure class="article-card-media">
         <picture>
-          <source
-            type="image/webp"
-            srcset={responsiveImage.srcset}
-            sizes={imageSizes}
-          />
+          {responsiveImage.srcset && (
+            <source
+              type="image/webp"
+              srcset={responsiveImage.srcset}
+              sizes={imageSizes}
+            />
+          )}
           <img
             src={responsiveImage.fallback}
             alt={meta.imageAlt ?? ''}
