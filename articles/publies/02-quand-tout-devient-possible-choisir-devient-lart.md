@@ -1,10 +1,8 @@
 # Quand tout devient possible, choisir devient l’art
 
-> **Statut :** version validée pour publication.
-
 Il y a encore quelques années, face à beaucoup de problèmes créatifs, la difficulté était assez évidente : réussir à produire ce qu’on avait en tête.
 
-Écrire cette scène correctement. Dessiner ce personnage. Trouver cette mélodie. Programmer cette mécanique. Obtenir ce plan. Aujourd’hui, le problème s'inverse.
+Écrire cette scène correctement. Dessiner ce personnage. Trouver cette mélodie. Programmer cette mécanique. Obtenir ce plan. Aujourd’hui, le problème s’inverse.
 
 Je peux demander dix formulations d’une phrase. Vingt directions pour une image. Plusieurs structures pour une scène. Des variantes d’un concept, d’une interface, d’un morceau de code ou d’un personnage.
 
@@ -110,9 +108,9 @@ Et quand tout devient possible, choisir devient peut-être une part de plus en p
 
 ---
 
-### Sources mentionnées
+### Sources
 
-- O. Kleinmintz et al., *The two-fold model of creativity: the neural underpinnings of the generation and evaluation of creative ideas*, Current Opinion in Behavioral Sciences, 2019 — https://doi.org/10.1016/j.cobeha.2018.11.004
-- E. F. Rietzschel, B. A. Nijstad & W. Stroebe, *The Selection of Creative Ideas after Individual Idea Generation: Choosing between Creativity and Impact*, British Journal of Psychology, 2010 — https://doi.org/10.1348/000712609X414204
-- J. McGuire, D. De Cremer & T. Van de Cruys, *Establishing the importance of co-creation and self-efficacy in creative collaboration with artificial intelligence*, Scientific Reports, 2024 — https://doi.org/10.1038/s41598-024-69423-2
-- A. R. Doshi & O. P. Hauser, *Generative AI enhances individual creativity but reduces the collective diversity of novel content*, Science Advances, 2024 — https://doi.org/10.1126/sciadv.adn5290
+- O. Kleinmintz et al., [*The two-fold model of creativity: the neural underpinnings of the generation and evaluation of creative ideas*](https://doi.org/10.1016/j.cobeha.2018.11.004), *Current Opinion in Behavioral Sciences*, 2019.
+- E. F. Rietzschel, B. A. Nijstad & W. Stroebe, [*The Selection of Creative Ideas after Individual Idea Generation: Choosing between Creativity and Impact*](https://doi.org/10.1348/000712609X414204), *British Journal of Psychology*, 2010.
+- J. McGuire, D. De Cremer & T. Van de Cruys, [*Establishing the importance of co-creation and self-efficacy in creative collaboration with artificial intelligence*](https://doi.org/10.1038/s41598-024-69423-2), *Scientific Reports*, 2024.
+- A. R. Doshi & O. P. Hauser, [*Generative AI enhances individual creativity but reduces the collective diversity of novel content*](https://doi.org/10.1126/sciadv.adn5290), *Science Advances*, 2024.

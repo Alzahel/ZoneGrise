@@ -1,9 +1,5 @@
 # Le problème n’est pas l’IA, c’est ce qu’on lui demande de remplacer
 
-> **Statut :** version validée pour publication.
->
-> Issue de la V5.1. Les versions exploratoires précédentes restent conservées séparément.
-
 Quand on parle aujourd’hui de création avec l’IA, je comprends très bien pourquoi beaucoup de gens ont une réaction presque épidermique.
 
 Il suffit d’ouvrir X, YouTube, Instagram ou parfois simplement Google pour tomber sur une quantité absurde de contenus produits à la chaîne. Les mêmes images, les mêmes voix, les mêmes formulations, les mêmes erreurs. Des choses qui semblent exister uniquement parce qu’elles pouvaient être produites rapidement, pas parce que quelqu’un avait réellement quelque chose à exprimer.
@@ -124,7 +120,7 @@ Je ne cherche donc pas à défendre « l’art IA » comme un bloc, ni à préte
 
 Pour le savoir, il faut regarder ce que la personne cherchait à faire, les décisions qu’elle a gardées, celles qu’elle a déléguées, ce qu’elle a refusé et la raison pour laquelle le résultat final existe précisément sous cette forme.
 
-Le contenu industriel est aujourd’hui particulièrement visible parce que sa raison d’être est justement d’être produit en quantité. Mais il serait dommage qu’à force de voir ceux qui utilisent l’IA pour produire sans avoir grand-chose à dire, on finisse par considérer comme illégitime l’outil chez ceux qui avaient justement quelque chose à faire exister.
+Le contenu industriel est aujourd’hui particulièrement visible parce que sa raison d’être est justement d’être produit en quantité. Mais il serait dommage qu’à force de voir ceux qui utilisent l’IA pour produire sans avoir grand-chose à dire, on finisse par considérer comme illégitime l’outil chez ceux qui avaient justement quelque chose à exprimer.
 
 Le problème n’est peut-être pas l’IA.
 
@@ -134,6 +130,6 @@ Et c’est cette frontière que j’ai envie d’explorer dans *Zone Grise*.
 
 ---
 
-### Source mentionnée
+### Source
 
-- Matt Cutts, Google, *Google search and search engine spam*, 21 janvier 2011 — https://googleblog.blogspot.com/2011/01/google-search-and-search-engine-spam.html
+- Matt Cutts, Google, [*Google search and search engine spam*](https://googleblog.blogspot.com/2011/01/google-search-and-search-engine-spam.html), 21 janvier 2011.

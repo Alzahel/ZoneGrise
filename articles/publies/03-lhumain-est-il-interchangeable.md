@@ -88,7 +88,7 @@ Mais elle peut aussi remplacer progressivement les choix qui donnent au projet s
 
 Il n’y a probablement pas de seuil magique entre les deux. Ce qui m’intéresse est le mouvement : à mesure que les décisions structurantes migrent vers l’outil, la personne devient moins nécessaire au résultat ; à mesure que le projet dépend de ses critères, de ses arbitrages et de ce qu’elle transforme, il devient plus difficile de la remplacer sans changer profondément ce qui est produit.
 
-Si remplacer la personne ne change presque rien au résultat, alors il faut peut-être accepter que la machine n’a pas seulement aidé à produire. Elle a aussi absorbé une partie de ce qui aurait rendu cette création personnelle.
+Si remplacer la personne ne change presque rien au résultat, alors il faut peut-être accepter que la machine n’a pas seulement aidé à produire. Elle a aussi remplacé une partie des choix qui auraient fait de ce résultat quelque chose de personnel.
 
 La vraie question n’est peut-être donc pas combien la machine a produit.
 
@@ -96,6 +96,6 @@ La vraie question n’est peut-être donc pas combien la machine a produit.
 
 ---
 
-### Source mentionnée
+### Source
 
-- P. Formosa, S. Bankins, R. Matulionyte & O. Ghasemi, *Can ChatGPT be an author? Generative AI creative writing assistance and perceptions of authorship, creatorship, responsibility, and disclosure*, AI & Society, publié en ligne en 2024, vol. 40 (2025) — https://doi.org/10.1007/s00146-024-02081-0
+- P. Formosa, S. Bankins, R. Matulionyte & O. Ghasemi, [*Can ChatGPT be an author? Generative AI creative writing assistance and perceptions of authorship, creatorship, responsibility, and disclosure*](https://doi.org/10.1007/s00146-024-02081-0), *AI & Society*, publié en ligne en 2024, vol. 40 (2025).

@@ -1,0 +1,129 @@
+/* Finition éditoriale — privilégier le confort de lecture sans modifier le langage visuel. */
+
+.article-prose {
+  line-height: 1.72;
+}
+
+/* Les fichiers Markdown gardent leur H1 pour rester lisibles seuls ; le gabarit l’affiche déjà. */
+.article-prose > h1:first-child + p {
+  color: var(--ink);
+  font-size: 1.12em;
+  line-height: 1.66;
+}
+
+/* Les essais utilisent beaucoup de paragraphes courts : un rythme un peu plus continu évite l’effet haché. */
+.article-prose p + p {
+  margin-top: 1.12em;
+}
+
+.article-prose h2 {
+  margin-top: 3.25em;
+  margin-bottom: 0.82em;
+  padding-top: 1.02em;
+}
+
+.article-prose h2:nth-of-type(even) {
+  transform: none;
+}
+
+/* La section des sources doit conclure l’essai sans devenir un deuxième encadré graphique. */
+.article-prose hr {
+  margin-top: 4.35em;
+}
+
+.article-prose hr + h3 + ul {
+  list-style: none;
+  margin-top: 1.15em;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.76rem;
+  line-height: 1.62;
+}
+
+.article-prose hr + h3 + ul li + li {
+  margin-top: 0.8em;
+}
+
+.article-nav {
+  margin-top: 82px;
+  padding-top: 24px;
+  gap: 40px;
+}
+
+.article-nav strong {
+  margin-top: 8px;
+  font-size: 1.22rem;
+  line-height: 1.2;
+}
+
+/* À propos : même largeur de lecture que les essais, avec moins d’espace entre les petits paragraphes. */
+.about-personal {
+  grid-template-columns: 180px minmax(0, 660px) 1fr;
+}
+
+.about-personal-copy {
+  max-width: 660px;
+  font-size: clamp(1.1rem, 1.4vw, 1.22rem);
+  line-height: 1.74;
+}
+
+.about-personal-copy p + p {
+  margin-top: 1.18em;
+}
+
+.about-opening + p {
+  margin-top: 1.65em !important;
+}
+
+.about-origin {
+  margin-top: 3.2em !important;
+}
+
+.about-closing {
+  margin-top: 2.35em !important;
+  transform: none;
+}
+
+@media (max-width: 1040px) {
+  .about-personal {
+    grid-template-columns: 110px minmax(0, 660px);
+  }
+}
+
+@media (max-width: 820px) {
+  .article-prose {
+    line-height: 1.7;
+  }
+
+  .article-prose p + p {
+    margin-top: 1.05em;
+  }
+
+  .article-prose h2 {
+    margin-top: 2.75em;
+    margin-bottom: 0.78em;
+    padding-top: 0.95em;
+  }
+
+  .article-nav {
+    margin-top: 68px;
+    gap: 24px;
+  }
+
+  .about-personal {
+    grid-template-columns: 1fr;
+  }
+
+  .about-personal-copy {
+    max-width: none;
+    font-size: 1.06rem;
+    line-height: 1.72;
+  }
+
+  .about-personal-copy p + p {
+    margin-top: 1.12em;
+  }
+}
