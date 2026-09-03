@@ -32,21 +32,15 @@ Dans ce cas, l’outil n’a pas seulement exécuté des décisions. Il en a pri
 
 Et si je peux remplacer l’utilisateur par presque n’importe qui sans changer profondément la trajectoire du projet, il devient difficile de dire que le résultat dépend fortement de cette personne-là.
 
-## Ce qui compte, c’est ce qui change quand on change la personne
+## Toutes les décisions n’ont pas le même poids
 
 À l’inverse, le même outil peut produire des projets qui divergent rapidement selon celui qui le dirige.
 
 Une personne va considérer une proposition comme terminée là où une autre ne voit qu’un brouillon. L’une va supprimer un accident, l’autre va décider que c’est précisément lui qui donne quelque chose au résultat. Une solution qui paraît satisfaisante à l’une peut devenir le point de départ d’une toute autre direction pour l’autre.
 
-Ce qui m’intéresse n’est pas que ces différences prouvent automatiquement qu’il y a de l’art. C’est qu’elles montrent que le résultat dépend de critères qui ne sont pas entièrement contenus dans l’outil.
+Ces différences montrent que le résultat peut dépendre de critères qui ne sont pas entièrement contenus dans l’outil.
 
-Autrement dit :
-
-**qu’est-ce qui, dans le résultat, aurait été différent si quelqu’un d’autre avait été aux commandes ?**
-
-## Plus la machine décide, plus l’humain devient facile à remplacer
-
-La formule est volontairement directe, mais elle demande une précision importante : toutes les décisions n’ont pas le même poids.
+Mais toutes les décisions n’ont pas le même poids.
 
 Un modèle peut prendre des milliers de microdécisions d’exécution sans forcément déterminer à lui seul ce qu’est le projet. À l’inverse, déléguer quelques décisions très structurantes peut suffire à déplacer énormément de contrôle.
 
@@ -76,21 +70,15 @@ Il faut rester prudent : l’étude mesure des perceptions, pas une définition 
 
 ## Le test ne mesure ni le talent ni la valeur
 
-Il faut pourtant lui imposer des limites assez strictes.
-
 Être difficile à remplacer ne veut pas dire être bon.
 
 Je peux avoir une manière absolument personnelle de prendre de mauvaises décisions. Le résultat sera peut-être très reconnaissable sans devenir meilleur pour autant.
 
 La substituabilité ne mesure donc pas la qualité.
 
-Elle ne mesure pas non plus automatiquement le statut d’auteur. Une œuvre collective peut dépendre profondément de plusieurs personnes à la fois. Une tradition artistique peut volontairement réduire la place de l’individualité. Un créateur peut construire une œuvre autour du hasard ou de règles qui lui font abandonner une partie du contrôle.
+Elle ne suffit pas non plus à définir qui est ou non l’auteur d’une œuvre. Une création collective peut dépendre profondément de plusieurs personnes à la fois. Un créateur peut aussi choisir de construire son travail autour du hasard, de règles ou de contraintes qui lui font volontairement abandonner une partie du contrôle.
 
 Et surtout, le test n’est pas juridique. Une contribution très personnelle ne règle pas les questions de droit, de données d’entraînement, de consentement, de crédit ou de rémunération.
-
-Il répond seulement à une question plus étroite :
-
-**à quel point ce résultat dépend-il de cette personne-là ?**
 
 ## Alors, qu’est-ce qu’on remplace vraiment ?
 
@@ -100,11 +88,7 @@ Mais elle peut aussi remplacer progressivement les choix qui donnent au projet s
 
 Il n’y a probablement pas de seuil magique entre les deux. Ce qui m’intéresse est le mouvement : à mesure que les décisions structurantes migrent vers l’outil, la personne devient moins nécessaire au résultat ; à mesure que le projet dépend de ses critères, de ses arbitrages et de ce qu’elle transforme, il devient plus difficile de la remplacer sans changer profondément ce qui est produit.
 
-C’est pour ça que je trouve la question utile :
-
-**si je change la personne, est-ce que je change aussi l’œuvre ?**
-
-Et si la réponse est presque non, alors il faut peut-être accepter que la machine n’a pas seulement aidé à produire le résultat. Elle a aussi remplacé une partie de ce qui aurait rendu cette création personnelle.
+Si remplacer la personne ne change presque rien au résultat, alors il faut peut-être accepter que la machine n’a pas seulement aidé à produire. Elle a aussi absorbé une partie de ce qui aurait rendu cette création personnelle.
 
 La vraie question n’est peut-être donc pas combien la machine a produit.
 
