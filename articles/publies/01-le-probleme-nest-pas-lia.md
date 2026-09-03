@@ -6,7 +6,7 @@
 
 Quand on parle aujourd’hui de création avec l’IA, je comprends très bien pourquoi beaucoup de gens ont une réaction presque épidermique.
 
-Il suffit d’ouvrir X, YouTube, Instagram ou parfois simplement Google pour tomber sur une quantité absurde de contenus produits à la chaîne. Les mêmes images, les mêmes voix, les mêmes formulations, les mêmes erreurs. Des choses qui semblent exister uniquement parce qu’elles pouvaient être produites rapidement, pas parce que quelqu’un avait réellement quelque chose à faire exister.
+Il suffit d’ouvrir X, YouTube, Instagram ou parfois simplement Google pour tomber sur une quantité absurde de contenus produits à la chaîne. Les mêmes images, les mêmes voix, les mêmes formulations, les mêmes erreurs. Des choses qui semblent exister uniquement parce qu’elles pouvaient être produites rapidement, pas parce que quelqu’un avait réellement quelque chose à exprimer.
 
 Je ne vais pas essayer de défendre ça.
 
