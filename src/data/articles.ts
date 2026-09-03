@@ -35,6 +35,13 @@ export const articleMeta: Record<string, ArticleMeta> = {
     image: 'images/article-03-interchangeable.webp',
     imageAlt: 'Portrait éditorial fragmenté et superposé, traversé par des formes de papier et un demi-cercle orange.',
   },
+  '04-lart-est-il-dans-les-composants-ou-dans-le-tout': {
+    title: 'L’art est-il dans les composants ou dans le tout ?',
+    description:
+      'Si produire les briques devient plus facile, l’ambition peut se déplacer vers le tout : des œuvres plus vastes, plus vivantes et parfois impossibles à construire auparavant.',
+    order: 4,
+    tags: ['composition', 'complexité', 'possibilités'],
+  },
 };
 
 export function getArticleMeta(id: string): ArticleMeta {
