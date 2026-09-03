@@ -96,7 +96,7 @@ Il répond seulement à une question plus étroite :
 
 L’IA peut remplacer une tâche d’exécution sans rendre automatiquement la personne derrière interchangeable.
 
-Mais elle peut aussi remplacer progressivement les décisions qui faisaient que le projet devait prendre cette forme plutôt qu’une autre.
+Mais elle peut aussi remplacer progressivement les choix qui donnent au projet sa direction, sa forme et surtout sa saveur.
 
 Il n’y a probablement pas de seuil magique entre les deux. Ce qui m’intéresse est le mouvement : à mesure que les décisions structurantes migrent vers l’outil, la personne devient moins nécessaire au résultat ; à mesure que le projet dépend de ses critères, de ses arbitrages et de ce qu’elle transforme, il devient plus difficile de la remplacer sans changer profondément ce qui est produit.
 
