@@ -40,9 +40,9 @@ Une personne va considérer une proposition comme terminée là où une autre ne
 
 Ce qui m’intéresse n’est pas que ces différences prouvent automatiquement qu’il y a de l’art. C’est qu’elles montrent que le résultat dépend de critères qui ne sont pas entièrement contenus dans l’outil.
 
-Le test de substituabilité pose alors une question assez simple :
+Autrement dit :
 
-**est-ce que changer la personne change aussi les décisions qui comptent vraiment ?**
+**qu’est-ce qui, dans le résultat, aurait été différent si quelqu’un d’autre avait été aux commandes ?**
 
 ## Plus la machine décide, plus l’humain devient facile à remplacer
 
