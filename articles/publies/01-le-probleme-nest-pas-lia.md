@@ -92,7 +92,7 @@ L’utiliser correctement suppose de rester capable de lui dire non, de **garder
 
 Une proposition peut être techniquement meilleure et trahir complètement l’intention de départ. Une direction peut être cohérente, séduisante, bien argumentée, et pourtant ne provoquer absolument rien chez celui qui crée.
 
-À ce moment-là, la décision ne peut pas être déléguée sans que quelque chose change de nature.
+À ce moment-là, la question n’est plus de savoir quelle version est la meilleure, mais laquelle est la mienne.
 
 ## Une question simple : suis-je encore nécessaire ?
 
