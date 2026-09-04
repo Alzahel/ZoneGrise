@@ -1,0 +1,209 @@
+name: Apply verified image fix
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply-image-fix.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: verified-image-fix
+  cancel-in-progress: false
+
+jobs:
+  build-and-fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Import verified text fragments from staging
+        run: |
+          git fetch origin image-fix-validate:image-fix-validate
+          git checkout image-fix-validate -- \
+            assets/fix-a2-p01.part00.b64 \
+            assets/fix-a2-p01.part01.b64 \
+            assets/fix-a2-p03.part00.b64 \
+            assets/fix-a2-p03.part01.b64 \
+            assets/fix-a4-p03.part00.b64 \
+            assets/fix-a4-p03.part01.b64 \
+            assets/fix-a4-p04.part00.b64 \
+            assets/fix-a4-p04.part01.b64
+
+      - name: Install verified reconstruction script
+        shell: bash
+        run: |
+          cat > scripts/generate-responsive-images.mjs <<'EOF'
+          import { createHash } from 'node:crypto';
+          import { access, mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
+          import path from 'node:path';
+          import { fileURLToPath } from 'node:url';
+          import sharp from 'sharp';
+
+          const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+          const sourceDir = path.join(root, 'public', 'images');
+          const outputDir = path.join(sourceDir, 'generated');
+          const assetDir = path.join(root, 'assets');
+
+          async function readParts(prefix) {
+            const names = (await readdir(assetDir))
+              .filter((name) => name.startsWith(prefix) && name.endsWith('.b64'))
+              .sort();
+
+            if (!names.length) throw new Error(`Aucun fragment Base64 trouvé pour ${prefix}`);
+
+            return (
+              await Promise.all(names.map((name) => readFile(path.join(assetDir, name), 'utf8')))
+            )
+              .map((part) => part.trim())
+              .join('');
+          }
+
+          async function restoreBase64Asset(prefix, outputFilename) {
+            const base64 = await readParts(`${prefix}.part`);
+            await writeFile(path.join(sourceDir, outputFilename), Buffer.from(base64, 'base64'));
+          }
+
+          async function restoreFromSegments(segments, outputFilename, validation) {
+            const base64Parts = [];
+            for (const segment of segments) {
+              if (segment.type === 'prefix') {
+                base64Parts.push(await readParts(segment.value));
+              } else {
+                base64Parts.push((await readFile(path.join(assetDir, segment.value), 'utf8')).trim());
+              }
+            }
+
+            const data = Buffer.from(base64Parts.join(''), 'base64');
+            const digest = createHash('sha256').update(data).digest('hex');
+            if (digest !== validation.sha256) {
+              throw new Error(`SHA-256 invalide pour ${outputFilename}: ${digest}`);
+            }
+
+            const metadata = await sharp(data).metadata();
+            if (metadata.width !== validation.width || metadata.height !== validation.height) {
+              throw new Error(
+                `Dimensions invalides pour ${outputFilename}: ${metadata.width}x${metadata.height}`,
+              );
+            }
+
+            await writeFile(path.join(sourceDir, outputFilename), data);
+          }
+
+          await restoreBase64Asset('article-03-selected', 'article-03-interchangeable.webp');
+
+          await restoreFromSegments(
+            [
+              { type: 'prefix', value: 'fix-a2-p01.part' },
+              { type: 'file', value: 'article-02-choisir-v3.part02.b64' },
+              { type: 'prefix', value: 'fix-a2-p03.part' },
+              { type: 'file', value: 'article-02-choisir-v3.part04.b64' },
+            ],
+            'article-02-choisir-v3.avif',
+            {
+              sha256: '2000a50736cefc8b537a1ebc71b544371f10006d4f56ef22cb1885c1fa82ad61',
+              width: 1672,
+              height: 941,
+            },
+          );
+
+          await restoreFromSegments(
+            [
+              { type: 'file', value: 'article-04-composition.part01.b64' },
+              { type: 'file', value: 'article-04-composition.part02.b64' },
+              { type: 'prefix', value: 'fix-a4-p03.part' },
+              { type: 'prefix', value: 'fix-a4-p04.part' },
+            ],
+            'article-04-composition.avif',
+            {
+              sha256: 'b4229594982a83b66686ec90d5cf413a81a1730b68d66bb9f168dced8d3dfd3c',
+              width: 1536,
+              height: 1024,
+            },
+          );
+
+          const sources = [
+            'article-01-remplacer.png',
+            'article-02-choisir-v3.avif',
+            'article-03-interchangeable.webp',
+            'article-04-composition.avif',
+            'about-atelier.png',
+            'zone-grise-brand.png',
+          ];
+          const widths = [480, 800, 1200, 1448];
+
+          await mkdir(outputDir, { recursive: true });
+
+          for (const filename of sources) {
+            const source = path.join(sourceDir, filename);
+            await access(source);
+            const stem = path.parse(filename).name;
+            const metadata = await sharp(source).metadata();
+            const sourceWidth = metadata.width ?? 1448;
+
+            for (const requestedWidth of widths) {
+              const width = Math.min(requestedWidth, sourceWidth);
+              const output = path.join(outputDir, `${stem}-${requestedWidth}.webp`);
+              await sharp(source)
+                .resize({ width, withoutEnlargement: true })
+                .webp({ quality: 86, effort: 5, smartSubsample: true })
+                .toFile(output);
+            }
+          }
+
+          console.log(`Images responsives générées dans ${path.relative(root, outputDir)}`);
+          EOF
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and validate Astro site
+        env:
+          SITE_URL: https://alzahel.github.io
+          BASE_PATH: /ZoneGrise
+        run: npm run build
+
+      - name: Persist verified source fix
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/generate-responsive-images.mjs assets/fix-*.b64
+          if git diff --cached --quiet; then
+            echo "No source changes to commit"
+          else
+            git commit -m "Images — fiabiliser les couvertures 2 et 4"
+            git push origin HEAD:main
+          fi
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build-and-fix
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
