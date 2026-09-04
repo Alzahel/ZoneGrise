@@ -196,15 +196,11 @@ Ce sont simplement des problèmes situés à un autre niveau.
 
 ## Le tout ne se réduit pas à ses parties
 
-Cela ne signifie pas que les composants cessent de compter.
+C’est peut-être là que cette manière de créer devient la plus intéressante.
 
-Mais une œuvre ne peut pas toujours être comprise en les regardant séparément.
+Si une partie du travail se déplace vers les règles, les relations et la cohérence d’ensemble, alors regarder chaque composant séparément ne suffit plus vraiment à comprendre l’œuvre.
 
-Deux projets peuvent utiliser des éléments très proches et produire des expériences complètement différentes selon leur rythme, leur ordre, leurs relations et la manière dont chacun répond aux autres.
-
-C’est précisément ce qui m’intéresse ici.
-
-Lorsque les briques deviennent plus faciles à produire, une part croissante du travail peut se déplacer vers ce qui les relie.
+Deux projets peuvent utiliser des briques très proches et produire quelque chose de complètement différent selon la manière dont elles sont assemblées.
 
 Et parfois, c’est justement là que se trouve ce que l’on retient de l’œuvre.
 
