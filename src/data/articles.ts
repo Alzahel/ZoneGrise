@@ -42,6 +42,8 @@ export const articleMeta: Record<string, ArticleMeta> = {
       'Si produire les briques devient plus facile, l’ambition peut se déplacer vers le tout : des œuvres plus vastes, plus vivantes et parfois impossibles à construire auparavant.',
     order: 4,
     tags: ['composition', 'complexité', 'possibilités'],
+    image: 'images/article-04-tout.svg',
+    imageAlt: 'Des fragments graphiques reliés entre eux convergent vers un monde complexe, illustrant le passage des composants vers un ensemble plus vaste.',
     showDeck: false,
   },
 };
