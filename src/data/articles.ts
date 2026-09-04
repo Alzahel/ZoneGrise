@@ -24,8 +24,8 @@ export const articleMeta: Record<string, ArticleMeta> = {
       'À mesure que produire devient facile, le goût, le refus et la capacité à décider ce qui mérite de rester prennent davantage de poids.',
     order: 2,
     tags: ['créativité', 'goût', 'choix'],
-    image: 'images/article-02-choisir.png',
-    imageAlt: 'Une main écrit dans un carnet au milieu de notes et de fragments éditoriaux.',
+    image: 'images/article-02-choisir-v3.webp',
+    imageAlt: 'Des mains sélectionnent et écartent des fragments visuels dans un collage éditorial en noir, crème et orange.',
   },
   '03-lhumain-est-il-interchangeable': {
     title: 'L’humain est-il interchangeable ?',
