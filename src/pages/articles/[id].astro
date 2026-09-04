@@ -54,7 +54,7 @@ const next = index < allArticles.length - 1 ? allArticles[index + 1] : undefined
       </div>
       <div class="article-kicker">{meta.tags.join(' · ')}</div>
       <h1>{meta.title}</h1>
-      <p class="article-deck">{meta.description}</p>
+      {meta.showDeck !== false && <p class="article-deck">{meta.description}</p>}
       <div class="article-header-rule" aria-hidden="true">
         <span>{number}</span>
       </div>
