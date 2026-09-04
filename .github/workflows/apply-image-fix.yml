@@ -38,7 +38,7 @@ jobs:
             assets/fix-a4-p04.part00.b64 \
             assets/fix-a4-p04.part01.b64
 
-      - name: Install verified reconstruction script
+      - name: Install inspection reconstruction script
         shell: bash
         run: |
           cat > scripts/generate-responsive-images.mjs <<'EOF'
@@ -57,14 +57,10 @@ jobs:
             const names = (await readdir(assetDir))
               .filter((name) => name.startsWith(prefix) && name.endsWith('.b64'))
               .sort();
-
             if (!names.length) throw new Error(`Aucun fragment Base64 trouvé pour ${prefix}`);
-
             return (
               await Promise.all(names.map((name) => readFile(path.join(assetDir, name), 'utf8')))
-            )
-              .map((part) => part.trim())
-              .join('');
+            ).map((part) => part.trim()).join('');
           }
 
           async function restoreBase64Asset(prefix, outputFilename) {
@@ -75,31 +71,21 @@ jobs:
           async function restoreFromSegments(segments, outputFilename, validation) {
             const base64Parts = [];
             for (const segment of segments) {
-              if (segment.type === 'prefix') {
-                base64Parts.push(await readParts(segment.value));
-              } else {
-                base64Parts.push((await readFile(path.join(assetDir, segment.value), 'utf8')).trim());
-              }
+              if (segment.type === 'prefix') base64Parts.push(await readParts(segment.value));
+              else base64Parts.push((await readFile(path.join(assetDir, segment.value), 'utf8')).trim());
             }
-
             const data = Buffer.from(base64Parts.join(''), 'base64');
             const digest = createHash('sha256').update(data).digest('hex');
-            if (digest !== validation.sha256) {
-              throw new Error(`SHA-256 invalide pour ${outputFilename}: ${digest}`);
-            }
-
+            console.log(`${outputFilename} SHA-256 ${digest}`);
             const metadata = await sharp(data).metadata();
+            console.log(`${outputFilename} dimensions ${metadata.width}x${metadata.height}`);
             if (metadata.width !== validation.width || metadata.height !== validation.height) {
-              throw new Error(
-                `Dimensions invalides pour ${outputFilename}: ${metadata.width}x${metadata.height}`,
-              );
+              throw new Error(`Dimensions invalides pour ${outputFilename}: ${metadata.width}x${metadata.height}`);
             }
-
             await writeFile(path.join(sourceDir, outputFilename), data);
           }
 
           await restoreBase64Asset('article-03-selected', 'article-03-interchangeable.webp');
-
           await restoreFromSegments(
             [
               { type: 'prefix', value: 'fix-a2-p01.part' },
@@ -108,13 +94,8 @@ jobs:
               { type: 'file', value: 'article-02-choisir-v3.part04.b64' },
             ],
             'article-02-choisir-v3.avif',
-            {
-              sha256: '2000a50736cefc8b537a1ebc71b544371f10006d4f56ef22cb1885c1fa82ad61',
-              width: 1672,
-              height: 941,
-            },
+            { width: 1672, height: 941 },
           );
-
           await restoreFromSegments(
             [
               { type: 'file', value: 'article-04-composition.part01.b64' },
@@ -123,11 +104,7 @@ jobs:
               { type: 'prefix', value: 'fix-a4-p04.part' },
             ],
             'article-04-composition.avif',
-            {
-              sha256: 'b4229594982a83b66686ec90d5cf413a81a1730b68d66bb9f168dced8d3dfd3c',
-              width: 1536,
-              height: 1024,
-            },
+            { width: 1536, height: 1024 },
           );
 
           const sources = [
@@ -139,16 +116,13 @@ jobs:
             'zone-grise-brand.png',
           ];
           const widths = [480, 800, 1200, 1448];
-
           await mkdir(outputDir, { recursive: true });
-
           for (const filename of sources) {
             const source = path.join(sourceDir, filename);
             await access(source);
             const stem = path.parse(filename).name;
             const metadata = await sharp(source).metadata();
             const sourceWidth = metadata.width ?? 1448;
-
             for (const requestedWidth of widths) {
               const width = Math.min(requestedWidth, sourceWidth);
               const output = path.join(outputDir, `${stem}-${requestedWidth}.webp`);
@@ -158,7 +132,6 @@ jobs:
                 .toFile(output);
             }
           }
-
           console.log(`Images responsives générées dans ${path.relative(root, outputDir)}`);
           EOF
 
@@ -170,39 +143,29 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build and validate Astro site
+      - name: Build and inspect Astro site
         env:
           SITE_URL: https://alzahel.github.io
           BASE_PATH: /ZoneGrise
         run: npm run build
 
-      - name: Persist verified source fix
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add scripts/generate-responsive-images.mjs assets/fix-*.b64
-          if git diff --cached --quiet; then
-            echo "No source changes to commit"
-          else
-            git commit -m "Images — fiabiliser les couvertures 2 et 4"
-            git push origin HEAD:main
-          fi
-
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Upload inspection artifact
+        uses: actions/upload-artifact@v4
         with:
-          path: dist
+          name: image-inspection
+          path: |
+            public/images/article-02-choisir-v3.avif
+            public/images/article-04-composition.avif
+            public/images/generated/article-02-choisir-v3-1448.webp
+            public/images/generated/article-04-composition-1448.webp
+
+      - name: Do not persist during inspection
+        if: ${{ false }}
+        run: echo disabled
 
   deploy:
+    if: ${{ false }}
     needs: build-and-fix
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - run: echo disabled
