@@ -7,7 +7,7 @@ export function getResponsiveImage(src?: string) {
 
   const filename = src.replace(/^\/+/, '').replace(/^images\//, '');
   const stem = filename.replace(/\.[^.]+$/, '');
-  const isRasterMaster = /\.png$/i.test(filename);
+  const isRasterMaster = /\.(png|jpe?g|webp|avif)$/i.test(filename);
 
   return {
     fallback: withBase(src),
