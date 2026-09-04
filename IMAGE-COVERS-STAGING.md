@@ -1,0 +1,1 @@
+Validation temporaire des couvertures 2 et 4. Ce fichier peut être supprimé après fusion.
