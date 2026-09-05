@@ -26,8 +26,8 @@ export const articleMeta: Record<string, ArticleMeta> = {
       'À mesure que produire devient facile, le goût, le refus et la capacité à décider ce qui mérite de rester prennent davantage de poids.',
     order: 2,
     tags: ['créativité', 'goût', 'choix'],
-    image: 'images/article-02-choisir-v3.avif',
-    imageAlt: 'Des mains sélectionnent et écartent des fragments visuels dans un collage éditorial en noir, crème et orange.',
+    image: 'images/article-02-choisir.png',
+    imageAlt: 'Une main écrit dans un carnet au milieu de notes et de fragments éditoriaux.',
   },
   '03-lhumain-est-il-interchangeable': {
     title: 'L’humain est-il interchangeable ?',
@@ -44,8 +44,8 @@ export const articleMeta: Record<string, ArticleMeta> = {
       'Si produire les briques devient plus facile, l’ambition peut se déplacer vers le tout : des œuvres plus vastes, plus vivantes et parfois impossibles à construire auparavant.',
     order: 4,
     tags: ['composition', 'complexité', 'possibilités'],
-    image: 'images/article-04-composition.avif',
-    imageAlt: 'Une personne assemble un grand collage éditorial de paysages, d’architectures et de fragments graphiques autour d’un cercle orange.',
+    image: 'images/article-04-tout.svg',
+    imageAlt: 'Des fragments graphiques reliés entre eux convergent vers un monde complexe, illustrant le passage des composants vers un ensemble plus vaste.',
     showDeck: false,
   },
 };
@@ -66,8 +66,8 @@ export const articleMetaEn: Record<string, ArticleMeta> = {
       'As producing becomes easier, taste, refusal and the ability to decide what deserves to remain carry more weight.',
     order: 2,
     tags: ['creativity', 'taste', 'choice'],
-    image: 'images/article-02-choisir-v3.avif',
-    imageAlt: 'Hands select and reject visual fragments in an editorial collage of black, cream and orange.',
+    image: 'images/article-02-choisir.png',
+    imageAlt: 'A hand writes in a notebook surrounded by notes and editorial fragments.',
   },
   '03-is-the-human-interchangeable': {
     title: 'Is the Human Interchangeable?',
@@ -84,8 +84,8 @@ export const articleMetaEn: Record<string, ArticleMeta> = {
       'If the building blocks become easier to produce, ambition can shift toward the whole: larger, more alive and sometimes previously impossible works.',
     order: 4,
     tags: ['composition', 'complexity', 'possibility'],
-    image: 'images/article-04-composition.avif',
-    imageAlt: 'A person assembles a large editorial collage of landscapes, architecture and graphic fragments around an orange circle.',
+    image: 'images/article-04-tout.svg',
+    imageAlt: 'Connected graphic fragments converge toward a complex world, suggesting the passage from components to a larger whole.',
     showDeck: false,
   },
 };
