@@ -1,0 +1,36 @@
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.language-switch > span {
+  opacity: 0.35;
+}
+
+.language-switch a {
+  opacity: 0.52;
+  text-decoration: none;
+  transition: opacity 160ms ease;
+}
+
+.language-switch a:hover,
+.language-switch a:focus-visible,
+.language-switch a[aria-current='page'] {
+  opacity: 1;
+}
+
+.language-switch a[aria-current='page'] {
+  font-weight: 600;
+}
+
+@media (max-width: 760px) {
+  .language-switch {
+    font-size: 0.72rem;
+    gap: 0.22rem;
+  }
+}

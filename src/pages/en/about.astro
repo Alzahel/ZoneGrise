@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getResponsiveImage } from '../../lib/responsiveImages';
+
+const aboutImage = 'images/about-atelier.png';
+const responsiveImage = getResponsiveImage(aboutImage);
+---
+
+<BaseLayout
+  locale="en"
+  title="About"
+  description="Why Zone Grise exists and where the project comes from."
+  image={aboutImage}
+  alternatePath="a-propos"
+>
+  <section class="about-personal-intro shell">
+    <div class="cover-folio">
+      <span>About</span>
+      <span>Origin of the project</span>
+    </div>
+    <h1>Why<br /><span>Zone Grise?</span></h1>
+  </section>
+
+  {responsiveImage && (
+    <figure class="about-visual shell">
+      <picture>
+        <source
+          type="image/webp"
+          srcset={responsiveImage.srcset}
+          sizes="(max-width: 820px) calc(100vw - 30px), (min-width: 1091px) 960px, 90vw"
+        />
+        <img
+          src={responsiveImage.fallback}
+          alt="A creative desk covered with notebooks, paper and notes, including the French phrase ‘Trop d’idées. Pas assez de temps.’ — ‘Too many ideas. Not enough time.’"
+          width="1448"
+          height="1086"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
+    </figure>
+  )}
+
+  <section class="about-personal shell">
+    <aside class="about-personal-aside" aria-hidden="true">
+      <div class="about-spectrum"></div>
+      <span>ZG / origin</span>
+    </aside>
+
+    <div class="about-personal-copy">
+      <p class="about-opening">I have a lot of ideas in my head.</p>
+
+      <p>Projects, things I want to create, things I would like to learn or build. Often more than I can realistically bring to completion.</p>
+
+      <p>I can easily feel overwhelmed by my own ambitions. I am also fairly perfectionistic: when I make something, I want the result to live up to what I imagine, even when I do not yet have all the skills needed to get there on my own.</p>
+
+      <p>That is the context in which AI started to interest me.</p>
+
+      <p>I see a tool with an enormous range of possibilities. A way to learn, unblock a problem, explore an idea, or simply move forward on projects that would otherwise probably remain somewhere in the back of my mind.</p>
+
+      <p>And I find it difficult not to be fascinated by that.</p>
+
+      <p>But that fascination also comes with a certain discomfort.</p>
+
+      <p>The more I discover these tools, the more I wonder what they change about the way I create. What place I still occupy in what I produce. How far I can rely on them without feeling that I am losing something along the way.</p>
+
+      <p>I feel the same tension when I look at what is happening around AI more broadly.</p>
+
+      <p>Some uses deeply bother me, and part of what I see developing around these tools makes me sad. But I identify just as little with reactions that make the tool itself the source of every problem.</p>
+
+      <p>So I often find myself somewhere between two positions.</p>
+
+      <p class="about-origin">That is where <strong>Zone Grise</strong> came from.</p>
+
+      <p>This blog is where I try to put some order into all these questions, explore this new territory as it takes shape and, I hope, bring a little nuance to places where positions sometimes become very sharp.</p>
+
+      <p>There are still an enormous number of open questions.</p>
+
+      <p class="about-closing">That is probably what makes this gray area so interesting.</p>
+    </div>
+  </section>
+</BaseLayout>

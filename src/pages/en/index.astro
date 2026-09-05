@@ -1,0 +1,91 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { articleMetaEn, getArticleMeta } from '../../data/articles';
+import { withBase } from '../../lib/paths';
+
+const articles = (await getCollection('articlesEn'))
+  .filter((article) => articleMetaEn[article.id])
+  .sort((a, b) => getArticleMeta(a.id, 'en').order - getArticleMeta(b.id, 'en').order);
+
+const first = articles[0];
+const latest = [...articles]
+  .reverse()
+  .filter((article) => article.id !== first?.id);
+---
+
+<BaseLayout locale="en" alternatePath="">
+  <section class="hero hero-v4 shell">
+    <div class="cover-folio">
+      <span>Essay journal</span>
+      <span>AI · creation · authorship · legitimacy</span>
+    </div>
+
+    <h1 class="hero-mobile-title"><span>Zone</span><span>Grise</span></h1>
+
+    <div class="hero-grid">
+      <h1 class="hero-desktop-title"><span>Zone</span><span>Grise</span></h1>
+      <div class="hero-copy">
+        <p class="hero-lede">
+          I find the world most exciting in moments of novelty, when there is still so much left to discover and explore.<br /><br />
+          AI is an unusual technology, fascinating in many ways, but it also raises an enormous number of questions: about how we use it, the choices we make, and sometimes what we consider acceptable.<br /><br />
+          <strong>This is the new terrain I want to explore in Zone Grise.</strong>
+        </p>
+        <p class="hero-note">Short essays. One question at a time. Simple answers can stay outside.</p>
+      </div>
+    </div>
+    <div class="hero-rule" aria-hidden="true"><span>ZG / essays</span></div>
+  </section>
+
+  {first && (
+    <section class="shell section-block featured-section">
+      <div class="section-heading">
+        <p class="eyebrow">Start here</p>
+        <p>The essay that sets the boundary Zone Grise wants to explore.</p>
+      </div>
+      <ArticleCard id={first.id} meta={getArticleMeta(first.id, 'en')} featured locale="en" />
+    </section>
+  )}
+
+  {latest.length > 0 && (
+    <section class="shell section-block reading-section">
+      <div class="section-heading row-heading">
+        <div>
+          <p class="eyebrow">Read next</p>
+          <h2>One central idea per essay.</h2>
+        </div>
+        <a class="text-link" href={withBase('en/articles')}>All articles →</a>
+      </div>
+      <div class="article-grid">
+        {latest.map((article) => (
+          <ArticleCard id={article.id} meta={getArticleMeta(article.id, 'en')} locale="en" />
+        ))}
+      </div>
+    </section>
+  )}
+
+  <section class="manifesto-band">
+    <div class="shell manifesto-intro">
+      <p class="eyebrow">Three recurring questions</p>
+      <p>Not a doctrine. A way to look more closely at what a tool actually changes in the act of creating.</p>
+    </div>
+    <div class="shell manifesto-grid">
+      <div class="principle">
+        <span>01</span>
+        <h3>What does the tool replace?</h3>
+        <p>A task, a skill, an interlocutor — or gradually the decisions that made the project what it was.</p>
+      </div>
+      <div class="principle">
+        <span>02</span>
+        <h3>What does the human still choose?</h3>
+        <p>Taste appears as much in what we keep as in what we refuse to let in.</p>
+      </div>
+      <div class="principle">
+        <span>03</span>
+        <h3>Who does the result depend on?</h3>
+        <p>The question is not only what the machine produced, but what changes when the person changes.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

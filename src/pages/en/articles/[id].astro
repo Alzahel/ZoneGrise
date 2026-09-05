@@ -1,12 +1,12 @@
 ---
 import { getCollection, render, type CollectionEntry } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import { articleMeta, getArticleMeta, getTranslatedArticleId } from '../../data/articles';
-import { withBase } from '../../lib/paths';
-import { getResponsiveImage } from '../../lib/responsiveImages';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { articleMetaEn, getArticleMeta, getTranslatedArticleId } from '../../../data/articles';
+import { withBase } from '../../../lib/paths';
+import { getResponsiveImage } from '../../../lib/responsiveImages';
 
 export async function getStaticPaths() {
-  const articles = (await getCollection('articles')).filter((article) => articleMeta[article.id]);
+  const articles = (await getCollection('articlesEn')).filter((article) => articleMetaEn[article.id]);
   return articles.map((article) => ({
     params: { id: article.id },
     props: { article },
@@ -14,12 +14,12 @@ export async function getStaticPaths() {
 }
 
 interface Props {
-  article: CollectionEntry<'articles'>;
+  article: CollectionEntry<'articlesEn'>;
 }
 
 const { article } = Astro.props;
-const meta = getArticleMeta(article.id);
-const translatedId = getTranslatedArticleId(article.id, 'fr');
+const meta = getArticleMeta(article.id, 'en');
+const translatedId = getTranslatedArticleId(article.id, 'en');
 const responsiveImage = getResponsiveImage(meta.image);
 const { Content, headings } = await render(article);
 const sections = headings.filter((heading) => heading.depth === 2);
@@ -27,35 +27,36 @@ const rawBody = 'body' in article && typeof article.body === 'string' ? article.
 const wordCount = rawBody.split(/\s+/).filter(Boolean).length;
 const readingTime = Math.max(1, Math.ceil(wordCount / 220));
 const number = String(meta.order).padStart(2, '0');
-const viewPath = withBase(`articles/${article.id}`);
+const viewPath = withBase(`en/articles/${article.id}`);
 
-const allArticles = (await getCollection('articles'))
-  .filter((item) => articleMeta[item.id])
-  .sort((a, b) => getArticleMeta(a.id).order - getArticleMeta(b.id).order);
+const allArticles = (await getCollection('articlesEn'))
+  .filter((item) => articleMetaEn[item.id])
+  .sort((a, b) => getArticleMeta(a.id, 'en').order - getArticleMeta(b.id, 'en').order);
 const index = allArticles.findIndex((item) => item.id === article.id);
 const previous = index > 0 ? allArticles[index - 1] : undefined;
 const next = index < allArticles.length - 1 ? allArticles[index + 1] : undefined;
 ---
 
 <BaseLayout
+  locale="en"
   title={meta.title}
   description={meta.description}
   image={meta.image}
-  alternatePath={translatedId ? `en/articles/${translatedId}` : undefined}
+  alternatePath={translatedId ? `articles/${translatedId}` : undefined}
 >
   <article class="article-shell shell">
     <header class="article-header">
       <div class="article-topline">
-        <a class="back-link" href={withBase('articles')}>← Tous les articles</a>
+        <a class="back-link" href={withBase('en/articles')}>← All articles</a>
         <div class="article-meta-line">
-          <span>Essai {number}</span>
-          <span>{readingTime} min de lecture</span>
+          <span>Essay {number}</span>
+          <span>{readingTime} min read</span>
           <span
             class="article-view-count"
             data-article-view-count
             data-view-path={viewPath}
             aria-live="polite"
-          >— vues</span>
+          >— views</span>
         </div>
       </div>
       <div class="article-kicker">{meta.tags.join(' · ')}</div>
@@ -91,7 +92,7 @@ const next = index < allArticles.length - 1 ? allArticles[index + 1] : undefined
 
     <div class="article-layout">
       {sections.length > 1 && (
-        <aside class="article-rail" aria-label="Repères de l’article">
+        <aside class="article-rail" aria-label="Article sections">
           <div class="article-rail-sticky">
             <p class="rail-label" aria-hidden="true">§</p>
             <ol>
@@ -116,17 +117,17 @@ const next = index < allArticles.length - 1 ? allArticles[index + 1] : undefined
       </div>
     </div>
 
-    <nav class="article-nav" aria-label="Articles précédent et suivant">
+    <nav class="article-nav" aria-label="Previous and next articles">
       {previous ? (
-        <a href={withBase(`articles/${previous.id}`)}>
-          <span>Précédent</span>
-          <strong>{getArticleMeta(previous.id).title}</strong>
+        <a href={withBase(`en/articles/${previous.id}`)}>
+          <span>Previous</span>
+          <strong>{getArticleMeta(previous.id, 'en').title}</strong>
         </a>
       ) : <span></span>}
       {next ? (
-        <a class="next" href={withBase(`articles/${next.id}`)}>
-          <span>Suivant</span>
-          <strong>{getArticleMeta(next.id).title}</strong>
+        <a class="next" href={withBase(`en/articles/${next.id}`)}>
+          <span>Next</span>
+          <strong>{getArticleMeta(next.id, 'en').title}</strong>
         </a>
       ) : <span></span>}
     </nav>
@@ -145,7 +146,7 @@ const next = index < allArticles.length - 1 ? allArticles[index + 1] : undefined
       const renderCount = (raw) => {
         const count = String(raw).trim();
         if (!count) return;
-        target.textContent = `${count} ${count === '1' ? 'vue' : 'vues'}`;
+        target.textContent = `${count} ${count === '1' ? 'view' : 'views'}`;
       };
 
       const loadCount = async () => {
@@ -167,7 +168,7 @@ const next = index < allArticles.length - 1 ? allArticles[index + 1] : undefined
             return;
           }
         } catch {
-          // Le compteur est un enrichissement : l'article reste lisible si le service est filtré.
+          // The view count is an enhancement; the article remains readable if it is blocked.
         }
 
         if (attempts < maxAttempts) {

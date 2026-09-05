@@ -8,4 +8,11 @@ const articles = defineCollection({
   }),
 });
 
-export const collections = { articles };
+const articlesEn = defineCollection({
+  loader: glob({
+    pattern: '*.md',
+    base: './articles/publies/en',
+  }),
+});
+
+export const collections = { articles, articlesEn };

@@ -1,5 +1,5 @@
 ---
-import type { ArticleMeta } from '../data/articles';
+import type { ArticleMeta, Locale } from '../data/articles';
 import { withBase } from '../lib/paths';
 import { getResponsiveImage } from '../lib/responsiveImages';
 
@@ -7,18 +7,24 @@ interface Props {
   id: string;
   meta: ArticleMeta;
   featured?: boolean;
+  locale?: Locale;
 }
 
-const { id, meta, featured = false } = Astro.props;
+const { id, meta, featured = false, locale = 'fr' } = Astro.props;
 const number = String(meta.order).padStart(2, '0');
 const responsiveImage = getResponsiveImage(meta.image);
 const imageSizes = featured
   ? '(max-width: 820px) calc(100vw - 30px), (max-width: 1040px) 230px, 390px'
   : '(max-width: 820px) calc(100vw - 30px), (max-width: 1040px) 230px, 248px';
+const articleHref = locale === 'en'
+  ? withBase(`en/articles/${id}`)
+  : withBase(`articles/${id}`);
+const essayLabel = locale === 'en' ? 'Essay' : 'Essai';
+const readLabel = locale === 'en' ? 'Read' : 'Lire';
 ---
 
 <article class:list={['article-card', { featured }]}> 
-  <a href={withBase(`articles/${id}`)} class="article-card-link">
+  <a href={articleHref} class="article-card-link">
     <span class="article-card-number" aria-hidden="true">{number}</span>
     {meta.image && responsiveImage && (
       <figure class="article-card-media">
@@ -44,13 +50,13 @@ const imageSizes = featured
     )}
     <div class="article-card-content">
       <div class="article-card-meta">
-        <span>Essai {number}</span>
+        <span>{essayLabel} {number}</span>
         <span class="dot" aria-hidden="true"></span>
         <span>{meta.tags.join(' · ')}</span>
       </div>
       <h2>{meta.title}</h2>
       <p>{meta.description}</p>
     </div>
-    <span class="read-link">Lire <span aria-hidden="true">↗</span></span>
+    <span class="read-link">{readLabel} <span aria-hidden="true">↗</span></span>
   </a>
 </article>

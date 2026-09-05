@@ -1,34 +1,96 @@
 ---
 import '../styles/current.css';
 import '../styles/editorial.css';
+import '../styles/i18n.css';
 import { stripBase, withBase } from '../lib/paths';
+import type { Locale } from '../data/articles';
 
 interface Props {
   title?: string;
   description?: string;
   image?: string;
+  locale?: Locale;
+  alternatePath?: string;
+  autoDetectLanguage?: boolean;
 }
 
 const {
   title = 'Zone Grise',
-  description = 'Essais sur l’IA, la créativité, l’auteur et les endroits où les catégories simples cessent de fonctionner.',
+  description,
   image = 'images/zone-grise-brand.png',
+  locale = 'fr',
+  alternatePath,
+  autoDetectLanguage = false,
 } = Astro.props;
 
+const labels = locale === 'en'
+  ? {
+      description: 'Essays on AI, creativity, authorship, and the places where simple categories stop working.',
+      homeAria: 'Zone Grise — home',
+      headerNote: 'Essays on creation in the age of AI',
+      navAria: 'Main navigation',
+      articles: 'Articles',
+      about: 'About',
+      themeDark: 'Enable dark mode',
+      themeLight: 'Enable light mode',
+      night: 'Night',
+      day: 'Day',
+      toDark: 'Switch to dark mode',
+      toLight: 'Switch to light mode',
+      languageAria: 'Language',
+      footerStatement: 'Looking at what AI changes about creating, without forcing a binary answer.',
+    }
+  : {
+      description: 'Essais sur l’IA, la créativité, l’auteur et les endroits où les catégories simples cessent de fonctionner.',
+      homeAria: 'Zone Grise — accueil',
+      headerNote: 'Essais sur la création à l’ère de l’IA',
+      navAria: 'Navigation principale',
+      articles: 'Articles',
+      about: 'À propos',
+      themeDark: 'Activer le mode sombre',
+      themeLight: 'Activer le mode clair',
+      night: 'Nuit',
+      day: 'Jour',
+      toDark: 'Passer au mode sombre',
+      toLight: 'Passer au mode clair',
+      languageAria: 'Langue',
+      footerStatement: 'Regarder ce que l’IA change dans le fait de créer, sans chercher une réponse binaire.',
+    };
+
+const resolvedDescription = description ?? labels.description;
 const pageTitle = title === 'Zone Grise' ? title : `${title} — Zone Grise`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const socialImage = new URL(withBase(image), Astro.site);
 const currentPath = stripBase(Astro.url.pathname);
+const alternateUrl = alternatePath !== undefined
+  ? new URL(alternatePath ? withBase(alternatePath) : withBase(), Astro.site)
+  : null;
+const frUrl = locale === 'fr'
+  ? canonical
+  : alternateUrl ?? new URL(withBase(), Astro.site);
+const enUrl = locale === 'en'
+  ? canonical
+  : alternateUrl ?? new URL(withBase('en'), Astro.site);
+
+const homeHref = locale === 'en' ? withBase('en') : withBase();
+const articlesHref = locale === 'en' ? withBase('en/articles') : withBase('articles');
+const aboutHref = locale === 'en' ? withBase('en/about') : withBase('a-propos');
+const articlesActive = locale === 'en'
+  ? currentPath.startsWith('/en/articles')
+  : currentPath.startsWith('/articles');
+const aboutActive = locale === 'en'
+  ? currentPath === '/en/about'
+  : currentPath === '/a-propos';
 ---
 
 <!doctype html>
-<html lang="fr">
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
-    <meta name="description" content={description} />
+    <meta name="description" content={resolvedDescription} />
     <meta name="theme-color" content="#fbf4e7" />
     <script is:inline>
       (() => {
@@ -49,6 +111,9 @@ const currentPath = stripBase(Astro.url.pathname);
       })();
     </script>
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="fr" href={frUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={frUrl} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet" />
@@ -57,33 +122,48 @@ const currentPath = stripBase(Astro.url.pathname);
     <link rel="sitemap" href={withBase('sitemap-index.xml')} />
     <meta property="og:site_name" content="Zone Grise" />
     <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={resolvedDescription} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={socialImage.href} />
+    <meta property="og:locale" content={locale === 'en' ? 'en_US' : 'fr_FR'} />
+    <meta property="og:locale:alternate" content={locale === 'en' ? 'fr_FR' : 'en_US'} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={socialImage.href} />
   </head>
   <body>
     <header class="site-header">
       <div class="shell nav-shell">
-        <a class="wordmark" href={withBase()} aria-label="Zone Grise — accueil">
+        <a class="wordmark" href={homeHref} aria-label={labels.homeAria}>
           <span class="wordmark-mark" aria-hidden="true"></span>
           <span>Zone Grise</span>
         </a>
-        <p class="header-note">Essais sur la création à l’ère de l’IA</p>
-        <nav aria-label="Navigation principale">
-          <a class:list={{ active: currentPath.startsWith('/articles') }} href={withBase('articles')}>Articles</a>
-          <a class:list={{ active: currentPath === '/a-propos' }} href={withBase('a-propos')}>À propos</a>
+        <p class="header-note">{labels.headerNote}</p>
+        <nav aria-label={labels.navAria}>
+          <a class:list={{ active: articlesActive }} href={articlesHref}>{labels.articles}</a>
+          <a class:list={{ active: aboutActive }} href={aboutHref}>{labels.about}</a>
+          <span class="language-switch" aria-label={labels.languageAria}>
+            <a
+              href={frUrl.href}
+              aria-current={locale === 'fr' ? 'page' : undefined}
+              data-language-choice="fr"
+            >FR</a>
+            <span aria-hidden="true">/</span>
+            <a
+              href={enUrl.href}
+              aria-current={locale === 'en' ? 'page' : undefined}
+              data-language-choice="en"
+            >EN</a>
+          </span>
           <button
             class="theme-toggle"
             type="button"
             data-theme-toggle
-            aria-label="Activer le mode sombre"
+            aria-label={labels.themeDark}
             aria-pressed="false"
           >
             <span class="theme-toggle-mark" aria-hidden="true"></span>
-            <span class="theme-toggle-label" data-theme-label>Nuit</span>
+            <span class="theme-toggle-label" data-theme-label>{labels.night}</span>
           </button>
         </nav>
       </div>
@@ -97,17 +177,85 @@ const currentPath = stripBase(Astro.url.pathname);
       <div class="shell footer-grid">
         <div>
           <p class="footer-label">Zone Grise</p>
-          <p class="footer-statement">Regarder ce que l’IA change dans le fait de créer, sans chercher une réponse binaire.</p>
+          <p class="footer-statement">{labels.footerStatement}</p>
         </div>
         <div class="footer-links">
-          <a href={withBase('articles')}>Articles</a>
-          <a href={withBase('a-propos')}>À propos</a>
+          <a href={articlesHref}>{labels.articles}</a>
+          <a href={aboutHref}>{labels.about}</a>
           <a href={withBase('rss.xml')}>RSS</a>
         </div>
       </div>
     </footer>
 
-    <script is:inline>
+    <script
+      is:inline
+      define:vars={{
+        autoDetectLanguage,
+        locale,
+        englishHomeHref: withBase('en'),
+      }}
+    >
+      (() => {
+        const key = 'zone-grise-language';
+        const links = document.querySelectorAll('[data-language-choice]');
+
+        links.forEach((link) => {
+          link.addEventListener('click', () => {
+            const choice = link.getAttribute('data-language-choice');
+            if (choice !== 'fr' && choice !== 'en') return;
+            try {
+              localStorage.setItem(key, choice);
+            } catch {}
+          });
+        });
+
+        if (!autoDetectLanguage || locale !== 'fr') return;
+
+        let stored = null;
+        try {
+          stored = localStorage.getItem(key);
+        } catch {}
+
+        if (stored === 'en') {
+          window.location.replace(englishHomeHref);
+          return;
+        }
+        if (stored === 'fr') return;
+
+        const languages = Array.isArray(navigator.languages) && navigator.languages.length
+          ? navigator.languages
+          : [navigator.language];
+        const preferred = languages
+          .map((value) => String(value || '').toLowerCase())
+          .find((value) => value.startsWith('fr') || value.startsWith('en'));
+
+        if (preferred?.startsWith('en')) {
+          try {
+            localStorage.setItem(key, 'en');
+          } catch {}
+          window.location.replace(englishHomeHref);
+          return;
+        }
+
+        if (preferred?.startsWith('fr')) {
+          try {
+            localStorage.setItem(key, 'fr');
+          } catch {}
+        }
+      })();
+    </script>
+
+    <script
+      is:inline
+      define:vars={{
+        themeDarkLabel: labels.themeDark,
+        themeLightLabel: labels.themeLight,
+        dayLabel: labels.day,
+        nightLabel: labels.night,
+        toDarkLabel: labels.toDark,
+        toLightLabel: labels.toLight,
+      }}
+    >
       (() => {
         const root = document.documentElement;
         const button = document.querySelector('[data-theme-toggle]');
@@ -121,9 +269,9 @@ const currentPath = stripBase(Astro.url.pathname);
         const syncControl = () => {
           const dark = root.dataset.theme === 'dark';
           button.setAttribute('aria-pressed', String(dark));
-          button.setAttribute('aria-label', dark ? 'Activer le mode clair' : 'Activer le mode sombre');
-          button.title = dark ? 'Passer au mode clair' : 'Passer au mode sombre';
-          if (label) label.textContent = dark ? 'Jour' : 'Nuit';
+          button.setAttribute('aria-label', dark ? themeLightLabel : themeDarkLabel);
+          button.title = dark ? toLightLabel : toDarkLabel;
+          if (label) label.textContent = dark ? dayLabel : nightLabel;
           themeColor?.setAttribute('content', dark ? '#171613' : '#fbf4e7');
         };
 
