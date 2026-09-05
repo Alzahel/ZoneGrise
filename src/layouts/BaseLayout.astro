@@ -215,7 +215,12 @@ const aboutActive = locale === 'en'
         try {
           stored = localStorage.getItem(key);
         } catch {}
-        if (stored === 'fr' || stored === 'en') return;
+
+        if (stored === 'en') {
+          window.location.replace(englishHomeHref);
+          return;
+        }
+        if (stored === 'fr') return;
 
         const languages = Array.isArray(navigator.languages) && navigator.languages.length
           ? navigator.languages
