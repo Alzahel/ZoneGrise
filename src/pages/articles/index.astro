@@ -9,7 +9,11 @@ const articles = (await getCollection('articles'))
   .sort((a, b) => getArticleMeta(b.id).order - getArticleMeta(a.id).order);
 ---
 
-<BaseLayout title="Articles" description="Tous les essais publiés sur Zone Grise.">
+<BaseLayout
+  title="Articles"
+  description="Tous les essais publiés sur Zone Grise."
+  alternatePath="en/articles"
+>
   <section class="page-intro shell narrow-intro">
     <p class="eyebrow">Articles</p>
     <h1>Explorer la zone grise.</h1>
