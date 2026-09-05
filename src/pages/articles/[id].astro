@@ -1,7 +1,7 @@
 ---
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { articleMeta, getArticleMeta } from '../../data/articles';
+import { articleMeta, getArticleMeta, getTranslatedArticleId } from '../../data/articles';
 import { withBase } from '../../lib/paths';
 import { getResponsiveImage } from '../../lib/responsiveImages';
 
@@ -19,6 +19,7 @@ interface Props {
 
 const { article } = Astro.props;
 const meta = getArticleMeta(article.id);
+const translatedId = getTranslatedArticleId(article.id, 'fr');
 const responsiveImage = getResponsiveImage(meta.image);
 const { Content, headings } = await render(article);
 const sections = headings.filter((heading) => heading.depth === 2);
@@ -36,7 +37,12 @@ const previous = index > 0 ? allArticles[index - 1] : undefined;
 const next = index < allArticles.length - 1 ? allArticles[index + 1] : undefined;
 ---
 
-<BaseLayout title={meta.title} description={meta.description} image={meta.image}>
+<BaseLayout
+  title={meta.title}
+  description={meta.description}
+  image={meta.image}
+  alternatePath={translatedId ? `en/articles/${translatedId}` : undefined}
+>
   <article class="article-shell shell">
     <header class="article-header">
       <div class="article-topline">
